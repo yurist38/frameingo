@@ -20,3 +20,6 @@ autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 mizzao:bootstrap-3
 fourseven:scss
+bozhao:accounts-instagram
+service-configuration
+accounts-ui
