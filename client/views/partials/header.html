@@ -3,14 +3,39 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="nav navbar-nav navbar-left">
-                        <a class="navbar-brand" href="/">InstaPhobia</a>
-                    </div>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a class="navbar-brand instaphobia-title" href="/">InstaPhobia</a>
+                        </li>
+                        <li>
+                            <a href="/events">Events</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-sm-6">
-                    <div class="nav navbar-nav navbar-right" style="float:none !important;">
-                        {{> loginButtons}}
-                    </div>
+                    <ul class="nav navbar-nav pull-right">
+                        {{#if currentUser}}
+                            <li>
+                                <img src="{{ userPic }}" class="user-avatar" alt="Profile">
+                                <a href="#">
+                                    {{ userName }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="logoutBtn">
+                                    Logout
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </li>
+                        {{ else }}
+                            <li>
+                                <button type="button" id="loginBtn" class="btn btn-default navbar-btn">
+                                    <i class="fa fa-instagram"></i>
+                                    Login
+                                </button>
+                            </li>
+                        {{/if}}
+                    </ul>
                 </div>
             </div>
         </div>
