@@ -5,10 +5,21 @@
                 <div class="col-sm-6">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a class="navbar-brand instaphobia-title" href="/">InstaPhobia</a>
+                            <a class="navbar-brand instaphobia-title" href="/">
+                                InstaPhobia
+                            </a>
                         </li>
+                        {{# if currentUser }}
+                            <li>
+                                <a href="/events">
+                                    My Events
+                                </a>
+                            </li>
+                        {{/if}}
                         <li>
-                            <a href="/events">Events</a>
+                            <a href="/events/add-event">
+                                Add Event
+                            </a>
                         </li>
                     </ul>
                 </div>

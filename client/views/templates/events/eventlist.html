@@ -1,0 +1,25 @@
+<template name="eventlist">
+    <div class="content">
+        <div class="container">
+            <ul class="list-group">
+                {{#if userEvents}}
+                    <li>
+                        List
+                    </li>
+                {{ else }}
+                    <li class="list-group-item">
+                        Have no added events. Please add your event...
+                    </li>
+                {{/if}}
+            </ul>
+            <div class="row event-new">
+                <div class="col-xs-12">
+                    <button id="addEvent" class="btn btn-success">
+                        <i class="fa fa-plus"></i>
+                        Add event
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

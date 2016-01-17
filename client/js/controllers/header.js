@@ -8,8 +8,8 @@ Template.header.helpers({
 });
 
 Template.header.events({
-    'click #loginBtn' : loginFn,
-    'click #logoutBtn' : logoutFn
+    'click #loginBtn': loginFn,
+    'click #logoutBtn': logoutFn
 });
 
 function loginFn() {
