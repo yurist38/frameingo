@@ -1,12 +1,15 @@
 <template name="eventlist">
     <div class="content">
         <div class="container">
+            {{#if currentUser}}
             <ul class="list-group">
-                {{#if userEvents}}
-                    <li>
-                        List
+                {{#if isEventExists}}
+                    {{#each userEvents}}
+                    <li class="list-group-item">
+                        {{name}}
                     </li>
-                {{ else }}
+                    {{/each}}
+                {{else}}
                     <li class="list-group-item">
                         Have no added events. Please add your event...
                     </li>
@@ -20,6 +23,9 @@
                     </button>
                 </div>
             </div>
+            {{else}}
+                {{> errorlogin}}
+            {{/if}}
         </div>
     </div>
 </template>

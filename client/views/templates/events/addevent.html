@@ -1,17 +1,18 @@
 <template name="addevent">
     <div class="content">
         <div class="container">
-            <form action="" class="form-horizontal">
+            {{#if currentUser }}
+            <form class="form-horizontal" id="addEventForm">
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="eventName">Event's name:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="eventName" placeholder="Billy's birthday 12.12.12">
+                        <input type="text" class="form-control" id="eventName" placeholder="Billy's birthday 12.12.12" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="eventTag">Tag (#):</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="eventTag" placeholder="BillysBirthday121212">
+                        <input type="text" class="form-control" id="eventTag" placeholder="BillysBirthday121212" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -23,6 +24,9 @@
                     </div>
                 </div>
             </form>
+            {{ else }}
+                {{> errorlogin }}
+            {{/if}}
         </div>
     </div>
 </template>

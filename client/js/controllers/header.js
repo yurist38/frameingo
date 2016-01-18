@@ -8,14 +8,6 @@ Template.header.helpers({
 });
 
 Template.header.events({
-    'click #loginBtn': loginFn,
-    'click #logoutBtn': logoutFn
+    'click #loginBtn': Meteor.loginWithInstagram,
+    'click #logoutBtn': Meteor.logout
 });
-
-function loginFn() {
-    Meteor.loginWithInstagram();
-}
-
-function logoutFn() {
-    Meteor.logout();
-}

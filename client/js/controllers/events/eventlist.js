@@ -1,6 +1,11 @@
 Template.eventlist.helpers({
+    isEventExists: function() {
+        return Events.find().count();
+    },
     userEvents: function() {
-        return false;
+        return Events.find({
+            "userId": Meteor.user()._id
+        });
     }
 });
 
