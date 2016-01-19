@@ -7,8 +7,8 @@ Template.addevent.events({
         if (eName && eTag) {
             Events.insert({
                 "userId": Meteor.user()._id,
-                "name": $('#eventName').val(),
-                "tag": $('#eventTag').val()
+                "name": eName,
+                "tag": eTag
             }, function(){
                 Match.setTimeout(function(){
                      Router.go('/events');

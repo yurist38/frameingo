@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Cantarell';
+    src: local('Cantarell Regular'), local('Cantarell-Regular'), url('cantarellregular.woff2') format('woff2'), url('cantarellregular.woff') format('woff'), url('cantarellregular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cantarell';
+    src: local('Cantarell Oblique'), local('Cantarell-Oblique'), url('cantarelloblique.woff2') format('woff2'), url('cantarelloblique.woff') format('woff'), url('cantarelloblique.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cantarell';
+    src: local('Cantarell Bold'), local('Cantarell-Bold'), url('cantarellbold.woff2') format('woff2'), url('cantarellbold.woff') format('woff'), url('cantarellbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cantarell';
+    src: local('Cantarell Bold Oblique'), local('Cantarell-BoldOblique'), url('cantarellboldoblique.woff2') format('woff2'), url('cantarellboldoblique.woff') format('woff'), url('cantarellboldoblique.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}

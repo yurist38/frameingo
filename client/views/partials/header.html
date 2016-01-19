@@ -1,5 +1,5 @@
 <template name="header">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" id="navPanel">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
@@ -11,13 +11,13 @@
                         </li>
                         {{# if currentUser }}
                             <li>
-                                <a href="/events">
+                                <a href="{{pathFor route='eventlist'}}">
                                     My Events
                                 </a>
                             </li>
                         {{/if}}
                         <li>
-                            <a href="/events/add-event">
+                            <a href="{{pathFor route='addevent'}}">
                                 Add Event
                             </a>
                         </li>

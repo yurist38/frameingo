@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Asap';
+    src: local('Asap'), local('Asap-Regular'), url('Asap.woff2') format('woff2'), url('Asap.woff') format('woff'), url('Asap.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Asap';
+    src: local('Asap Italic'), local('Asap-Italic'), url('Asapitalic.woff2') format('woff2'), url('Asapitalic.woff') format('woff'), url('Asapitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Asap';
+    src: local('Asap Medium'), local('Asap-Medium'), url('Asapmedium.woff2') format('woff2'), url('Asapmedium.woff') format('woff'), url('Asapmedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Asap';
+    src: local('Asap MediumItalic'), local('Asap-MediumItalic'), url('Asapmediumitalic.woff2') format('woff2'), url('Asapmediumitalic.woff') format('woff'), url('Asapmediumitalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Asap';
+    src: local('Asap Bold'), local('Asap-Bold'), url('Asapbold.woff2') format('woff2'), url('Asapbold.woff') format('woff'), url('Asapbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Asap';
+    src: local('Asap Bold Italic'), local('Asap-BoldItalic'), url('Asapbolditalic.woff2') format('woff2'), url('Asapbolditalic.woff') format('woff'), url('Asapbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
