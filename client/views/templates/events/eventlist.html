@@ -7,6 +7,9 @@
                     {{#each userEvents}}
                     <li class="list-group-item">
                         {{name}}
+                        <a class="delete-event-link pull-right" href="#" title="Remove event">
+                            <i class="fa fa-times" data-event="{{_id}}"></i>
+                        </a>
                     </li>
                     {{/each}}
                 {{else}}

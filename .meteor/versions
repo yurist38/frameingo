@@ -88,6 +88,7 @@ spacebars-compiler@1.0.7
 srp@1.0.4
 templating@1.1.5
 templating-tools@1.0.0
+themeteorchef:jquery-validation@1.14.0
 tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4
