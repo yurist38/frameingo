@@ -1,0 +1,51 @@
+<template name="profile">
+    <div class="container top-padding">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <img src="{{avatar}}" alt="" class="img-responsive center-block">
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">User Name:</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{username}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Full Name:</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{fullname}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Biography:</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{bio}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Website:</h3>
+                    </div>
+                    <div class="panel-body">
+                        <a href="{{website}}" target="_blank">
+                            {{website}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

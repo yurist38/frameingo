@@ -6,7 +6,9 @@
                 {{#if isEventExists}}
                     {{#each userEvents}}
                     <li class="list-group-item">
-                        {{name}}
+                        <a href="/event/{{name}}" title="Go to slideshow">
+                            {{name}}
+                        </a>
                         <a class="delete-event-link pull-right" href="#" title="Remove event">
                             <i class="fa fa-times" data-event="{{_id}}"></i>
                         </a>
