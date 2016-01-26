@@ -1,4 +1,4 @@
 {
-    'clientId': '<your-client-ID>',
-    'secret': '<your-client-secret>'
+    "clientId": "<your-client-ID>",
+    "secret": "<your-client-secret>"
 }
