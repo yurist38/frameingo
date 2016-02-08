@@ -3,5 +3,9 @@ Meteor.publish('userData', function() {
 });
 
 Meteor.publish('userEvents', function() {
-    return Events.find();
-})
+    return Events.find({"userId": this.userId});
+});
+
+Meteor.publish('eventData', function() {
+    return EventData.find();
+});

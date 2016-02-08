@@ -1,5 +1,5 @@
 <template name="eventlist">
-    <div class="content">
+    <div class="content eventlist">
         <div class="container">
             {{#if currentUser}}
             <ul class="list-group">
@@ -7,8 +7,11 @@
                     {{#each userEvents}}
                     <li class="list-group-item">
                         <a href="/event/{{name}}" title="Go to slideshow">
-                            {{name}}
+                            {{ name }}
                         </a>
+                        <span class="tag">
+                            #{{ tag }}
+                        </span>
                         <a class="delete-event-link pull-right" href="#" title="Remove event">
                             <i class="fa fa-times" data-event="{{_id}}"></i>
                         </a>

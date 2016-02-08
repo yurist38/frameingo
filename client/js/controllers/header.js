@@ -1,21 +1,21 @@
 Template.header.helpers({
-    userName: function() {
+    userName() {
         return Meteor.user().profile.name;
     },
-    userPic: function() {
+    userPic() {
         return Meteor.user().services.instagram.profile_picture;
     }
 });
 
 Template.header.created = function() {
-    this.subscriptions = Meteor.subscribe('userData');
+    this.subscribe('userData');
 };
 
 Template.header.events({
     'click #loginBtn': function() {
-        Meteor.loginWithInstagram( function() {} );
+        Meteor.loginWithInstagram( () => {} );
     },
     'click #logoutBtn': function() {
-        Meteor.logout( function() {} );
+        Meteor.logout( () => {} );
     }
 });

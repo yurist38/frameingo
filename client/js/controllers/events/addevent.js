@@ -38,7 +38,5 @@ Template.addevent.events({
 });
 
 function isNameExists(name) {
-    return Events.find({
-        "name": name
-    }).count();
+    return Events.find({name}).count();
 }
