@@ -17,7 +17,7 @@ Template.slideshow.created = function(){
     request_url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent';
     params = {
         access_token: Meteor.user().services.instagram.accessToken,
-        count: 5
+        count: 4
     };
     getItems();
 }

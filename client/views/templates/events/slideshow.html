@@ -1,9 +1,17 @@
 <template name="slideshow">
     <div class="slideshow">
-        {{# each items}}
-            <div class="item">
-                <img src="{{ images.standard_resolution.url }}" alt="">
-            </div>
-        {{/each}}
+        <div class="slide-content simple4">
+            {{# each items}}
+                <div class="item item{{ @index }}">
+                    <img src="{{ images.standard_resolution.url }}" class="slide-img">
+                    <div class="author">
+                        <img class="avatar" src="{{ user.profile_picture }}"/>
+                        <span class="name">
+                            {{ user.username }}
+                        </span>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     </div>
 </template>
