@@ -37,17 +37,20 @@
                     height: auto;
                     border-radius: 50%;
                     position: relative;
-                    margin: 0 10px 5px 0;
+                    margin-right: 10px;
                     float: right;
                 }
                 .name {
-                    text-shadow: 0 0 1px #000;
-                    color: #ffcc00;
+                    color: #ffffff;
                     font-size: 1.2em;
-                    display: block;
+                    display: inline-block;
                     position: relative;
                     clear: both;
-                    padding: 0 10px 5px;
+                    float: right;
+                    padding: 0 10px;
+                    margin: 10px;
+                    border-radius: 20px;
+                    background-color: rgba(0, 0, 0, 0.6);
                 }
             }
         }

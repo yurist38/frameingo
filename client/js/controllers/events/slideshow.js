@@ -2,6 +2,7 @@ let currentCollectionId, params, event, hashtag, request_url;
 
 Template.slideshow.helpers({
     items() {
+        if (!isHaveEventData() || !currentCollectionId) return false;
         let resultObj = EventData.findOne({_id: currentCollectionId});
         let result = $.map(resultObj, (value, index) => {
             if (index !== '_id') return [value];
@@ -11,7 +12,8 @@ Template.slideshow.helpers({
 });
 
 Template.slideshow.created = function(){
-    currentCollectionId = EventData.find({}, {sort: {Field: -1}, limit: 1}).fetch()[0]._id;
+    currentCollectionId = isHaveEventData() ?
+        EventData.find({}, {sort: {Field: -1}, limit: 1}).fetch()[0]._id : '';
     event = Events.findOne({"name": Router.current().params.name});
     hashtag = event.tag;
     request_url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent';
@@ -20,6 +22,10 @@ Template.slideshow.created = function(){
         count: 4
     };
     getItems();
+}
+
+function isHaveEventData() {
+    return !!EventData.find({}, {sort: {Field: -1}, limit: 1}).fetch().length;
 }
 
 function getItems() {
@@ -34,7 +40,7 @@ function getItems() {
         jsonpCallback: 'jsonpcallback',
         cache: false,
         success(response) {
-            EventData.remove({_id: currentCollectionId});
+            if (currentCollectionId) EventData.remove({_id: currentCollectionId});
             currentCollectionId = EventData.insert(response.data);
             setTimeout(getItems, 10000);
         },
