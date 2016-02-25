@@ -30,6 +30,12 @@ html, body {
                 font-size: 40px;
                 line-height: 70px;
                 color: #040491;
+                .beta {
+                    position: relative;
+                    top: -12px;
+                    font-size: 0.6em;
+                    color: #666666;
+                }
             }
         }
     }

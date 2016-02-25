@@ -1,4 +1,5 @@
 <template name="header">
+    {{#if Template.subscriptionsReady}}
     <nav class="navbar navbar-default" id="navPanel">
         <div class="container-fluid">
             <div class="row">
@@ -7,9 +8,10 @@
                         <li>
                             <a class="navbar-brand instaphobia-title" href="/">
                                 InstaPhobia
+                                <span class="beta">beta</span>
                             </a>
                         </li>
-                        {{# if currentUser }}
+                        {{#if currentUser}}
                             <li>
                                 <a href="{{pathFor route='eventlist'}}">
                                     My Events
@@ -51,4 +53,5 @@
             </div>
         </div>
     </nav>
+    {{/if}}
 </template>

@@ -32,3 +32,4 @@ fortawesome:fontawesome
 iron:router
 themeteorchef:jquery-validation
 sacha:spin
+gorillastack:iron-router-gtm
