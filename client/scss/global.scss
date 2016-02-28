@@ -18,6 +18,17 @@ html, body {
     margin-bottom: 0;
     border: none;
     border-radius: 0;
+    .logo-img {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        margin: 5px 0;
+    }
+    .dropdown-menu {
+        min-width: auto;
+        left: auto;
+        right: 0;
+    }
     li {
         a {
             display: inline-block;

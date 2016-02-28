@@ -3,10 +3,11 @@
     <nav class="navbar navbar-default" id="navPanel">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
                             <a class="navbar-brand instaphobia-title" href="/">
+                                <img src="/images/logo-small.png" class="logo-img" alt="Logo">
                                 InstaPhobia
                                 <span class="beta">beta</span>
                             </a>
@@ -25,20 +26,30 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <ul class="nav navbar-nav pull-right">
                         {{#if currentUser}}
-                            <li>
+                            <li class="dropdown">
                                 <img src="{{ userPic }}" class="user-avatar" alt="Profile">
-                                <a href="/profile">
+                                <a href="dropdown-toggle" data-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
                                     {{ userName }}
+                                    <span class="caret"></span>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="#" id="logoutBtn">
-                                    Logout
-                                    <i class="fa fa-times"></i>
-                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{pathFor route='profile'}}">
+                                            <i class="fa fa-user"></i>
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" id="logoutBtn">
+                                            <i class="fa fa-times"></i>
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         {{ else }}
                             <li>
