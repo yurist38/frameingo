@@ -1,0 +1,14 @@
+.content.add-event {
+    img.radio-select-img-item {
+        border: solid 3px #dcdcdc;
+        margin-right: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        &:hover {
+            border: solid 3px #adff2f;
+        }
+        &.item-checked {
+            border: solid 3px #b3d4fc;
+        }
+    }
+}

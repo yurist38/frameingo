@@ -16,6 +16,10 @@
         .dropdown-menu {
             min-width: auto;
         }
+        img {
+            height: 40px;
+            width: auto;
+        }
     }
     .slide-content {
         &[data-template="grid1"] {
@@ -74,7 +78,6 @@
             .item1 {
                 width: calc(50vh - 25px);
                 height: calc(50vh - 25px);
-                //flex-grow: 1;
             }
             .item2 {
                 width: calc(100vh - 50px);
@@ -126,17 +129,4 @@
             }
         }
     } // .slide-content
-
-    img.radio-select-img-item {
-        border: solid 2px #dcdcdc;
-        margin-right: 20px;
-        cursor: pointer;
-        &:hover {
-            border: solid 2px #adff2f;
-        }
-        &.item-checked {
-            border: solid 2px #b3d4fc;
-        }
-    }
-
 }

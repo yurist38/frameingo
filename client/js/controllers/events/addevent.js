@@ -9,7 +9,8 @@ Template.addevent.onRendered(function() {
             }
         },
         errorPlacement: function(error, element) {}
-    })
+    });
+    $('input.radioImageSelect').radioImageSelect();
 });
 
 Template.addevent.events({
@@ -24,7 +25,8 @@ Template.addevent.events({
             Events.insert({
                 "userId": Meteor.user()._id,
                 "name": eName,
-                "tag": eTag
+                "tag": eTag,
+                "grid": $('input[name="gridName"]:checked').val()
             }, function() {
                 Router.go('/events');
             });

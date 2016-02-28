@@ -1,5 +1,5 @@
 <template name="addevent">
-    <div class="content">
+    <div class="content add-event">
         <div class="container">
             {{#if currentUser }}
             <form class="form-horizontal" id="addEventForm">
@@ -15,6 +15,20 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="eventTag" id="eventTag"
                         placeholder="BillysBirthday121212" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="eventGrid">Grid:</label>
+                    <div class="col-sm-10">
+                        <input id="grid1" type="radio" name="gridName" value="grid1"
+                            class="radioImageSelect" data-image="/images/grids/grid1.png" checked="checked">
+                        <label for="grid1">Grid 1</label>
+                        <input id="grid2" type="radio" name="gridName" value="grid2"
+                            class="radioImageSelect" data-image="/images/grids/grid2.png" />
+                        <label for="grid2">Grid 2</label>
+                        <input id="grid3" type="radio" name="gridName" value="grid3"
+                            class="radioImageSelect" data-image="/images/grids/grid3.png" />
+                        <label for="grid3">Grid 3</label>
                     </div>
                 </div>
                 <div class="form-group">
