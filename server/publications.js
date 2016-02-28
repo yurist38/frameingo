@@ -9,3 +9,7 @@ Meteor.publish('userEvents', function() {
 Meteor.publish('eventData', function() {
     return EventData.find();
 });
+
+Meteor.publish('grids', function() {
+    return Grids.find();
+});
