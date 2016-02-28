@@ -1,24 +1,24 @@
 Template.profile.helpers({
-    avatar: function() {
-        return userInsta().profile_picture;
+    avatar() {
+        return userInsta() ? userInsta().profile_picture : '';
     },
-    username: function() {
-        return userInsta().username;
+    username() {
+        return userInsta() ? userInsta().username : '';
     },
-    instaId: function() {
-        return userInsta().id;
+    instaId() {
+        return userInsta() ? userInsta().id : '';
     },
-    fullname: function() {
-        return userInsta().full_name;
+    fullname() {
+        return userInsta() ? userInsta().full_name : '';
     },
-    bio: function() {
-        return userInsta().bio;
+    bio() {
+        return userInsta() ? userInsta().bio : '';
     },
-    website: function() {
-        return userInsta().website;
+    website() {
+        return userInsta() ? userInsta().website : '';
     }
 });
 
 function userInsta() {
-    return Meteor.user().services.instagram;
+    return !!Meteor.user() ? Meteor.user().services.instagram : false;
 }
