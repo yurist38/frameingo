@@ -1,3 +1,5 @@
+@import "../../_variables.scss";
+
 .slideshow {
     height: calc(100vh - 50px);
     width: 100%;
@@ -129,4 +131,66 @@
             }
         }
     } // .slide-content
+}
+
+@media only screen and (max-width: $screen-xs) {
+    .slideshow {
+        .slide-content {
+            &[data-template="grid1"] {
+                height: 150vw;
+                width: 100vw;
+                flex-direction: row;
+                margin-top: calc((100vh - 50px - 150vw)/2);
+                .item0 {
+                    width: 100vw;
+                    height: 100vw;
+                }
+                .item1,
+                .item2 {
+                    width: 50vw;
+                    height: 50vw;
+                }
+            }
+            &[data-template="grid2"] {
+                height: 100vw;
+                width: 100vw;
+                margin-top: calc((100vh - 50px - 100vw) / 2);
+                .item {
+                    width: 50vw;
+                    height: 50vw;
+                }
+            }
+            &[data-template="grid3"] {
+                height: 200vw;
+                width: 100vw;
+                margin-top: calc((100vh - 50px - 200vw) / 2);
+                flex-direction: row;
+                .item0,
+                .item1 {
+                    width: 50vw;
+                    height: 50vw;
+                }
+                .item2 {
+                    width: 100vw;
+                    height: 100vw;
+                }
+                .item3,
+                .item4 {
+                    width: 50vw;
+                    height: 50vw;
+                }
+            }
+            .item {
+                .author {
+                    .avatar {
+                        margin-right: 5px;
+                    }
+                    .name {
+                        font-size: 10px;
+                        margin: 5px;
+                    }
+                }
+            }
+        }
+    }
 }
