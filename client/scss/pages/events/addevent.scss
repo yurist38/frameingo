@@ -1,3 +1,5 @@
+@import "../../_variables.scss";
+
 .content.add-event {
     img.radio-select-img-item {
         border: solid 3px #dcdcdc;
@@ -9,6 +11,16 @@
         }
         &.item-checked {
             border: solid 3px #b3d4fc;
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-sm) {
+    .content.add-event {
+        img.radio-select-img-item {
+            height: 40px;
+            width: auto;
+            margin-right: 5px;
         }
     }
 }

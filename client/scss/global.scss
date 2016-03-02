@@ -1,3 +1,5 @@
+@import "_variables.scss";
+
 html, body {
     margin: 0;
     padding: 0;
@@ -18,21 +20,33 @@ html, body {
     margin-bottom: 0;
     border: none;
     border-radius: 0;
+    .navbar-nav {
+        margin: 0;
+    }
     .logo-img {
         display: inline-block;
         vertical-align: top;
         position: relative;
-        margin: 5px 0;
+        margin: 10px 0;
+        height: 30px;
+        width: auto;
     }
     .dropdown-menu {
         min-width: auto;
         left: auto;
         right: 0;
+        li {
+            a {
+                line-height: 25px;
+            }
+        }
     }
     li {
         a {
             display: inline-block;
             font-size: 1.2em;
+            padding: 0 15px;
+            line-height: 50px;
             font-family: 'Cantarell', 'Asap', Arial, sans-serif;
             &.instaphobia-title {
                 font-family: 'billabongregular', Arial, sans-serif;
@@ -41,6 +55,7 @@ html, body {
                 font-size: 40px;
                 line-height: 70px;
                 color: #040491;
+                white-space: nowrap;
                 .beta {
                     position: relative;
                     top: -12px;
@@ -68,4 +83,36 @@ html, body {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 15px;
+}
+
+@media only screen and (max-width: $screen-sm) {
+    #navPanel {
+        .dropdown-menu {
+            position: absolute;
+            top: 50px;
+            padding: 5px 15px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px #666666;
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-xs) {
+    #navPanel {
+        li {
+            &.dropdown {
+                a {
+                    padding: 0;
+                    min-width: 55px;
+                }
+            }
+            a.instaphobia-title {
+                font-size: 25px;
+                line-height: 65px;
+            }
+        }
+    }
+    .container.top-padding {
+        padding-top: 20px;
+    }
 }
