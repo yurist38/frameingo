@@ -3,40 +3,55 @@
     <nav class="navbar navbar-default" id="navPanel">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-xs-8">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
                             <a class="navbar-brand instaphobia-title" href="/">
                                 <img src="/images/logo-small.png" class="logo-img" alt="Logo">
                                 InstaPhobia
-                                <span class="beta">beta</span>
+                                <span class="beta hidden-xs">beta</span>
                             </a>
                         </li>
                         {{#if currentUser}}
                             <li>
-                                <a href="{{pathFor route='eventlist'}}">
+                                <a href="{{pathFor route='eventlist'}}" class="hidden-xs">
                                     My Events
                                 </a>
                             </li>
                         {{/if}}
                         <li>
-                            <a href="{{pathFor route='addevent'}}">
+                            <a href="{{pathFor route='addevent'}}" class="hidden-xs">
                                 Add Event
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-xs-4">
                     <ul class="nav navbar-nav pull-right">
                         {{#if currentUser}}
                             <li class="dropdown">
-                                <img src="{{ userPic }}" class="user-avatar" alt="Profile">
                                 <a href="dropdown-toggle" data-toggle="dropdown"
                                     role="button" aria-haspopup="true" aria-expanded="false">
-                                    {{ userName }}
+                                    <img src="{{ userPic }}" class="user-avatar" alt="Profile">
+                                    <span class="hidden-xs">{{ userName }}</span>
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
+                                    <li class="visible-xs">
+                                        {{ userName }}
+                                    </li>
+                                    <li class="visible-xs">
+                                        <a href="{{pathFor route='eventlist'}}">
+                                            <i class="fa fa-bars"></i>
+                                            My Events
+                                        </a>
+                                    </li>
+                                    <li class="visible-xs">
+                                        <a href="{{pathFor route='addevent'}}">
+                                            <i class="fa fa-plus"></i>
+                                            Add Event
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{{pathFor route='profile'}}">
                                             <i class="fa fa-user"></i>
@@ -54,8 +69,9 @@
                         {{ else }}
                             <li>
                                 <button type="button" id="loginBtn" class="btn btn-info navbar-btn">
-                                    <i class="fa fa-instagram"></i>
-                                    Login with Instagram
+                                    <i class="fa fa-instagram"></i>&nbsp;
+                                    Sign in
+                                    <span class="hidden-xs">with <strong>Instagram</strong></span>
                                 </button>
                             </li>
                         {{/if}}

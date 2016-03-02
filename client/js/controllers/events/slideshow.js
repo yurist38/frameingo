@@ -23,7 +23,10 @@ Template.slideshow.helpers({
 Template.slideshow.created = () => {
     currentCollectionId = isHaveEventData() ?
         EventData.find({}, {sort: {Field: -1}, limit: 1}).fetch()[0]._id : '';
-    event = Events.findOne({"name": Router.current().params.name});
+    event = Events.findOne({
+        "name": Router.current().params.name,
+        "userId": Meteor.userId()
+    });
     hashtag = event.tag;
     request_url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent';
     params = {
