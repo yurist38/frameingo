@@ -2,10 +2,12 @@ Template.addevent.onRendered(function() {
     $('#addEventForm').validate({
         rules: {
             eventName: {
-                required: true
+                required: true,
+                singleWord: true
             },
             eventTag: {
-                required: true
+                required: true,
+                singleWord: true
             }
         },
         errorPlacement: function(error, element) {}
@@ -17,8 +19,8 @@ Template.addevent.events({
     'click #addEventLoginBtn': Meteor.loginWithInstagram,
     'submit #addEventForm': function(event) {
         event.preventDefault();
-        var eName = $('#eventName').val();
-        var eTag = $('#eventTag').val();
+        var eName = $('#eventName').val().replace(/<(?:.|\n)*?>|\s/gm, '');
+        var eTag = $('#eventTag').val().replace(/<(?:.|\n)*?>|\s/gm, '');
         if (isNameExists(eName)) {
             alert('Sorry! This name already exists in your events list...');
         } else if ($('#addEventForm').valid()) {
@@ -42,3 +44,11 @@ Template.addevent.events({
 function isNameExists(name) {
     return Events.find({name}).count();
 }
+
+jQuery.validator.addMethod("singleWord", function(value, element) {
+    if (/^[A-Za-z]+$/.test(value)) {
+        return true;
+    } else {
+        return false;
+    }
+}, "Check value please, must be single word...");
