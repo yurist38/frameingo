@@ -1,15 +1,85 @@
 .content.index {
     background-image: url('/images/index-bg.jpg');
     position: relative;
+    height: calc(100vh - 50px);
+
+    .howto {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        height: calc(100% - 40px);
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+        .block {
+            position: relative;
+            display: block;
+            width: calc(50% - 30px);
+            height: auto;
+            margin: 15px;
+            padding: 30px;
+            text-align: center;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            border: 1px solid #fff;
+            box-shadow: 0 0 15px #ccc;
+            &:before {
+                display: block;
+                position: absolute;
+                left: -1px;
+                top: -1px;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 1.5rem;
+                color: #fff;
+                border-radius: 10px 0 10px 0;
+                border: 1px solid #fff;
+                background-color: #999;
+            }
+            &:nth-of-type(1):before {
+                content: '1';
+            }
+            &:nth-of-type(2):before {
+                content: '2';
+            }
+            &:nth-of-type(3):before {
+                content: '3';
+            }
+            &:nth-of-type(4):before {
+                content: '4';
+            }
+            &.block1 {
+                cursor: pointer;
+                transition: all 0.3s ease-in;
+                &:hover {
+                    background-color: #ffffff;
+                }
+            }
+            .picon {
+                display: block;
+                text-align: center;
+                font-size: 85px;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 2rem;
+            }
+        }
+    }
+
     footer {
         position: absolute;
         width: 100%;
-        height: 50px;
+        height: 40px;
         bottom: 0;
         left: 0;
         background-color: rgba(0,0,0, 0.5);
         color: #cccccc;
-        line-height: 50px;
+        line-height: 40px;
         a {
             color: #ffffff;
         }

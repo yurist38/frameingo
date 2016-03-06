@@ -30,7 +30,7 @@ Template.addevent.events({
                 "tag": eTag,
                 "grid": $('input[name="gridName"]:checked').val()
             }, function() {
-                Router.go('/events');
+                Router.go('eventlist');
             });
         } else {
             alert('Error! Sorry, your event have not been added...');

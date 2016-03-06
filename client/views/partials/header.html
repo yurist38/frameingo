@@ -15,12 +15,14 @@
                         {{#if currentUser}}
                             <li>
                                 <a href="{{pathFor route='eventlist'}}" class="hidden-xs">
+                                    <i class="picon picon-list"></i>
                                     My Events
                                 </a>
                             </li>
                         {{/if}}
                         <li>
                             <a href="{{pathFor route='addevent'}}" class="hidden-xs">
+                                <i class="picon picon-add"></i>
                                 Add Event
                             </a>
                         </li>
@@ -37,30 +39,30 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="visible-xs">
-                                        {{ userName }}
+                                    <li class="visible-xs user-name">
+                                        <b>{{ userName }}</b>
                                     </li>
                                     <li class="visible-xs">
                                         <a href="{{pathFor route='eventlist'}}">
-                                            <i class="fa fa-bars"></i>
+                                            <i class="picon picon-list"></i>
                                             My Events
                                         </a>
                                     </li>
                                     <li class="visible-xs">
                                         <a href="{{pathFor route='addevent'}}">
-                                            <i class="fa fa-plus"></i>
+                                            <i class="picon picon-add"></i>
                                             Add Event
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{pathFor route='profile'}}">
-                                            <i class="fa fa-user"></i>
+                                            <i class="picon picon-profile"></i>
                                             Profile
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" id="logoutBtn">
-                                            <i class="fa fa-times"></i>
+                                            <i class="picon picon-logout"></i>
                                             Logout
                                         </a>
                                     </li>

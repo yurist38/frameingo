@@ -1,3 +1,5 @@
-Template.index.rendered = function() {
-    $('.content').css('height', ($(window).height() - $('nav').outerHeight()) + 'px' );
-}
+Template.index.events({
+    'click .block1': () => {
+        Router.go('addevent');
+    }
+});
