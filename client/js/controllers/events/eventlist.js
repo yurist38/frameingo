@@ -10,12 +10,10 @@ Template.eventlist.helpers({
 });
 
 Template.eventlist.events({
-    'click #addEvent': gotoAddEvent,
+    'click #addEvent': () => {
+        Router.go('addevent');
+    },
     'click .delete-event-link': function () {
         Events.remove(this._id);
     }
 });
-
-function gotoAddEvent() {
-    Router.go('/events/add-event');
-}
