@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .content.index {
     background-image: url('/images/index-bg.jpg');
     position: relative;
@@ -15,7 +17,8 @@
         .block {
             position: relative;
             display: block;
-            width: calc(50% - 30px);
+            min-width: calc(50% - 30px);
+            max-width: calc(50% - 30px);
             height: auto;
             margin: 15px;
             padding: 30px;
@@ -82,6 +85,27 @@
         line-height: 40px;
         a {
             color: #ffffff;
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-sm) {
+    .content.index {
+        .howto {
+            .block {
+                min-width: calc(100% - 30px);
+                max-width: calc(100% - 30px);
+                padding: 10px;
+                .picon {
+                    font-size: 40px;
+                    float: left;
+                    margin: 0 5px 0 20px;
+                }
+                p {
+                    font-size: 1.2rem;
+                    margin: 0;
+                }
+            }
         }
     }
 }
