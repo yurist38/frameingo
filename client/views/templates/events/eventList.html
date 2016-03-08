@@ -6,20 +6,20 @@
                 {{#if isEventExists}}
                     {{#each userEvents}}
                     <li class="list-group-item">
-                        <a href="/event/{{name}}" title="Go to slideshow">
+                        <a href="/event/{{name}}" title="{{_ 'event-list.run-slideshow' }}">
                             {{ name }}
                         </a>
                         <span class="tag">
                             #{{ tag }}
                         </span>
-                        <a class="delete-event-link pull-right" href="#" title="Remove event">
+                        <a class="delete-event-link pull-right" href="#" title="{{_ 'event-list.remove-event' }}">
                             <i class="fa fa-times" data-event="{{_id}}"></i>
                         </a>
                     </li>
                     {{/each}}
                 {{else}}
                     <li class="list-group-item">
-                        Have no added events. Please add your event...
+                        {{_ 'event-list.no-events'}}
                     </li>
                 {{/if}}
             </ul>
@@ -27,7 +27,7 @@
                 <div class="col-xs-12">
                     <button id="addEvent" class="btn btn-success">
                         <i class="fa fa-plus"></i>
-                        Add event
+                        {{_ 'event-list.add-event' }}
                     </button>
                 </div>
             </div>
