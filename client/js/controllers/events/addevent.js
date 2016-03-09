@@ -22,7 +22,7 @@ Template.addevent.events({
         var eName = $('#eventName').val().replace(/<(?:.|\n)*?>|\s/gm, '');
         var eTag = $('#eventTag').val().replace(/<(?:.|\n)*?>|\s/gm, '');
         if (isNameExists(eName)) {
-            alert('Sorry! This name already exists in your events list...');
+            alert(TAPi18n.__('add-event.error-name-exists'));
         } else if ($('#addEventForm').valid()) {
             Events.insert({
                 "userId": Meteor.user()._id,
@@ -30,10 +30,10 @@ Template.addevent.events({
                 "tag": eTag,
                 "grid": $('input[name="gridName"]:checked').val()
             }, function() {
-                Router.go('/events');
+                Router.go('eventlist');
             });
         } else {
-            alert('Error! Sorry, your event have not been added...');
+            alert(TAPi18n.__('add-event.error-not-added'));
         }
     },
     'input input': function(event) {
@@ -42,13 +42,16 @@ Template.addevent.events({
 });
 
 function isNameExists(name) {
-    return Events.find({name}).count();
+    return !!Events.findOne({
+        "name":name,
+        "userId": Meteor.userId()
+    });
 }
 
 jQuery.validator.addMethod("singleWord", function(value, element) {
-    if (/^[A-Za-z]+$/.test(value)) {
+    if (/^[A-Za-zА-ЯЁа-яё0-9]+$/.test(value)) {
         return true;
     } else {
         return false;
     }
-}, "Check value please, must be single word...");
+}, TAPi18n.__('add-event.error-not-valid'));

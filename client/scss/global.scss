@@ -23,6 +23,14 @@ html, body {
     .navbar-nav {
         margin: 0;
     }
+    .nav-left,
+    .nav-right {
+        white-space: nowrap;
+        overflow: visible;
+    }
+    .visible-md {
+        display: inline-block !important;
+    }
     .logo-img {
         display: inline-block;
         vertical-align: top;
@@ -31,13 +39,45 @@ html, body {
         height: 30px;
         width: auto;
     }
+    #loginBtn {
+        margin-left: 15px;
+    }
+    .dropdown {
+        display: inline-block;
+        vertical-align: middle;
+        &.langs {
+            text-transform: uppercase;
+            >a {
+                padding: 0;
+            }
+        }
+    }
     .dropdown-menu {
         min-width: auto;
         left: auto;
         right: 0;
+        padding: 0;
         li {
+            padding: 0 15px;
             a {
-                line-height: 25px;
+                display: block;
+                padding: 0;
+                line-height: 35px;
+                .picon {
+                    font-size: inherit;
+                }
+                &:hover {
+                    background: none;
+                }
+            }
+            &:hover {
+                background-color: #d4d4d4;
+            }
+            .flag-img {
+                height: 15px;
+                width: auto;
+                position: relative;
+                top: -2px;
             }
         }
     }
@@ -45,9 +85,15 @@ html, body {
         a {
             display: inline-block;
             font-size: 1.2em;
-            padding: 0 15px;
             line-height: 50px;
+            padding: 0 15px;
             font-family: 'Cantarell', 'Asap', Arial, sans-serif;
+            .picon {
+                font-size: 27px;
+                vertical-align: middle;
+                position: relative;
+                top: -2px;
+            }
             &.instaphobia-title {
                 font-family: 'billabongregular', Arial, sans-serif;
                 margin: 0;
@@ -85,12 +131,20 @@ html, body {
     padding: 15px;
 }
 
+@media only screen and (max-width: $screen-md) {
+    #navPanel {
+        .visible-md {
+            display: none !important;
+        }
+    }
+}
+
 @media only screen and (max-width: $screen-sm) {
     #navPanel {
         .dropdown-menu {
             position: absolute;
             top: 50px;
-            padding: 5px 15px;
+            padding: 5px 0;
             background-color: #ffffff;
             box-shadow: 0 1px 3px #666666;
         }

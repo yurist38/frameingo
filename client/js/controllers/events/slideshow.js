@@ -1,4 +1,4 @@
-let currentCollectionId, params, event, hashtag, request_url;
+let currentCollectionId, params, hashtag, request_url;
 
 Template.slideshow.helpers({
     items() {
@@ -23,15 +23,10 @@ Template.slideshow.helpers({
 Template.slideshow.created = () => {
     currentCollectionId = isHaveEventData() ?
         EventData.find({}, {sort: {Field: -1}, limit: 1}).fetch()[0]._id : '';
-    event = Events.findOne({
-        "name": Router.current().params.name,
-        "userId": Meteor.userId()
-    });
-    hashtag = event.tag;
-    request_url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent';
+    request_url = 'https://api.instagram.com/v1/tags/' + currentEvent().tag + '/media/recent';
     params = {
         access_token: Meteor.user().services.instagram.accessToken,
-        count: Grids.findOne({"name": getActiveGrid()}).quantity
+        count: Grids.findOne({"name": currentEvent().grid}).quantity
     };
     getItems();
 }
@@ -42,17 +37,30 @@ Template.slideshow.events({
     }
 });
 
+function currentEvent() {
+    return Events.findOne({
+        "name": Router.current().params.name,
+        "userId": Meteor.userId()
+    });
+}
+
 function isHaveEventData() {
     return !!EventData.find({}, {sort: {Field: -1}, limit: 1}).fetch().length;
 }
 
 function getActiveGrid() {
     if (!isHaveEventData()) return false;
-    return event.grid || 'grid1';
+    return currentEvent().grid;
 }
 
 function setActiveGrid(gridName) {
-    event.grid = gridName;
+    Events.update({
+        _id: currentEvent()._id
+    }, {
+        $set: {
+            grid: gridName
+        }
+    });
     params.count = Grids.findOne({"name": gridName}).quantity;
     getItems();
 }

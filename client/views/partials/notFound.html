@@ -4,9 +4,9 @@
             <div class="col-xs-12">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        Welcome to 404 page! This page is not found...
-                        <a href="{{pathFor route='home'}}" title="Go to main page">
-                            Go home..
+                        {{_ 'global.error-404-msg' }}
+                        <a href="{{pathFor route='home'}}" title="{{_ 'global.go-home' }}">
+                            {{_ 'global.go-home' }}
                         </a>
                     </li>
                 </ul>

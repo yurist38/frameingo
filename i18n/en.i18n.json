@@ -1,0 +1,44 @@
+{
+    "global": {
+        "add-event": "Add Event",
+        "my-events": "My Events",
+        "profile": "Profile",
+        "logout": "Logout",
+        "sign-in": "Sign In",
+        "with-instagram": "with <b>Instagram</b>",
+        "sorry-login": "Sorry, login first please...",
+        "error-404-msg": "Welcome to 404 page! This page is not found...",
+        "go-home": "Go home..."
+    },
+    "index": {
+        "meta-title": "InstaPhobia - Event's Slideshow",
+        "meta-description": "Instagram Live Feed By Your Tag. Promote event and party.",
+        "tip1": "Create your event <br>with unique hashtag",
+        "tip2": "Ask guests to post pics <br>to Instagram by your hashtag",
+        "tip3": "Show new photos in realtime <br>on a big screen",
+        "tip4": "Enjoy your party <br>together!"
+    },
+    "add-event": {
+        "event-name": "Event's name",
+        "event-name-placeholder": "MyBirthday",
+        "tag": "Tag",
+        "tag-placeholder": "MyAmazingBirthday121212",
+        "grid": "Grid",
+        "save": "Save",
+        "error-name-exists": "Sorry! This name already exists in your events list... Please try another one.",
+        "error-not-added": "Error! Sorry, your event have not been added... Please try later...",
+        "error-not-valid": "Check value please, must be single word..."
+    },
+    "event-list": {
+        "no-events": "You have no added events. Please add your first event...",
+        "add-event": "Add event",
+        "run-slideshow": "Run slideshow",
+        "remove-event": "Remove event"
+    },
+    "profile": {
+        "username": "User Name",
+        "fullname": "Full Name",
+        "biography": "Biography",
+        "website": "Website"
+    }
+}
