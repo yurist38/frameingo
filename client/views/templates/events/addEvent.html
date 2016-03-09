@@ -1,7 +1,6 @@
 <template name="addevent">
     <div class="content add-event">
         <div class="container">
-            {{#if currentUser }}
             <form class="form-horizontal" id="addEventForm">
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="eventName">
@@ -47,9 +46,6 @@
                     </div>
                 </div>
             </form>
-            {{ else }}
-                {{> errorlogin }}
-            {{/if}}
         </div>
     </div>
 </template>

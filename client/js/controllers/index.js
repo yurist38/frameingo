@@ -12,6 +12,12 @@ Template.mainLayout.rendered = function() {
         styles[0], styles[1], styles[2]);
 };
 
+Template.errorLogin.events({
+    'click #addEventLoginBtn': () => {
+        Meteor.loginWithInstagram( () => {} );
+    }
+});
+
 Template.index.events({
     'click .block1': () => {
         Router.go('addevent');

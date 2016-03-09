@@ -24,7 +24,10 @@
         "tag": "Tag",
         "tag-placeholder": "MyAmazingBirthday121212",
         "grid": "Grid",
-        "save": "Save"
+        "save": "Save",
+        "error-name-exists": "Sorry! This name already exists in your events list... Please try another one.",
+        "error-not-added": "Error! Sorry, your event have not been added... Please try later...",
+        "error-not-valid": "Check value please, must be single word..."
     },
     "event-list": {
         "no-events": "You have no added events. Please add your first event...",
