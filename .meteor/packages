@@ -34,3 +34,7 @@ themeteorchef:jquery-validation
 sacha:spin
 gorillastack:iron-router-gtm
 reywood:iron-router-ga
+tap:i18n
+martino:iron-router-i18n
+martino:i18n-conf
+lookback:seo

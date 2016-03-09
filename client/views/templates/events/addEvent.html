@@ -1,49 +1,51 @@
 <template name="addevent">
     <div class="content add-event">
         <div class="container">
-            {{#if currentUser }}
             <form class="form-horizontal" id="addEventForm">
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="eventName">Event's name:</label>
+                    <label class="control-label col-sm-2" for="eventName">
+                        {{_ 'add-event.event-name' }}:
+                    </label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="eventName" id="eventName"
-                        placeholder="MyBirthday" required>
+                        placeholder="{{_ 'add-event.event-name-placeholder' }}" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="eventTag">Tag:</label>
+                    <label class="control-label col-sm-2" for="eventTag">
+                        {{_ 'add-event.tag' }}:
+                    </label>
                     <div class="col-sm-10">
                         <span class="input-group-addon tag-prefield text-right">#</span>
                         <input type="text" class="form-control" name="eventTag" id="eventTag"
-                            placeholder="MyAmazingBirthday121212" required>
+                            placeholder="{{_ 'add-event.tag-placeholder' }}" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="eventGrid">Grid:</label>
+                    <label class="control-label col-sm-2" for="eventGrid">
+                        {{_ 'add-event.grid' }}:
+                    </label>
                     <div class="col-sm-10">
                         <input id="grid1" type="radio" name="gridName" value="grid1"
                             class="radioImageSelect" data-image="/images/grids/grid1.png" checked="checked">
-                        <label for="grid1">Grid 1</label>
+                        <label for="grid1">{{_ 'add-event.grid' }} 1</label>
                         <input id="grid2" type="radio" name="gridName" value="grid2"
                             class="radioImageSelect" data-image="/images/grids/grid2.png" />
-                        <label for="grid2">Grid 2</label>
+                        <label for="grid2">{{_ 'add-event.grid' }} 2</label>
                         <input id="grid3" type="radio" name="gridName" value="grid3"
                             class="radioImageSelect" data-image="/images/grids/grid3.png" />
-                        <label for="grid3">Grid 3</label>
+                        <label for="grid3">{{_ 'add-event.grid' }} 3</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" id="saveEventBtn" class="btn btn-default btn-success" disabled>
                             <i class="fa fa-check"></i>
-                            Save
+                            {{_ 'add-event.save' }}
                         </button>
                     </div>
                 </div>
             </form>
-            {{ else }}
-                {{> errorlogin }}
-            {{/if}}
         </div>
     </div>
 </template>

@@ -1,12 +1,17 @@
-<template name="errorlogin">
-    <ul class="list-group">
-        <li class="list-group-item">
-            Sorry, login first please...
-        </li>
-    </ul>
-
-    <button class="btn btn-info" id="addEventLoginBtn">
-        <i class="fa fa-instagram"></i>
-        Login with Instagram
-    </button>
+<template name="errorLogin">
+    <div class="container top-padding">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        {{_ 'global.sorry-login'}}
+                    </li>
+                </ul>
+                <button class="btn btn-info" id="addEventLoginBtn">
+                    <i class="fa fa-instagram"></i>
+                    {{_ 'global.sign-in'}} {{{_ 'global.with-instagram'}}}
+                </button>
+            </div>
+        </div>
+    </div>
 </template>
