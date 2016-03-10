@@ -39,14 +39,13 @@ html, body {
         height: 30px;
         width: auto;
     }
-    #loginBtn {
-        margin-left: 15px;
-    }
     .dropdown {
         display: inline-block;
         vertical-align: middle;
         &.langs {
             text-transform: uppercase;
+            text-align: right;
+            margin-right: 10px;
             >a {
                 padding: 0;
             }
@@ -86,7 +85,7 @@ html, body {
             display: inline-block;
             font-size: 1.2em;
             line-height: 50px;
-            padding: 0 15px;
+            padding: 0;
             font-family: 'Cantarell', 'Asap', Arial, sans-serif;
             .picon {
                 font-size: 27px;
@@ -97,7 +96,7 @@ html, body {
             &.instaphobia-title {
                 font-family: 'billabongregular', Arial, sans-serif;
                 margin: 0;
-                padding: 0 15px;
+                padding: 0;
                 font-size: 40px;
                 line-height: 70px;
                 color: #040491;
@@ -109,6 +108,12 @@ html, body {
                     color: #666666;
                 }
             }
+        }
+        &.sign-in {
+            display: inline-block;
+        }
+        &.menu-item {
+            margin-left: 15px;
         }
     }
     .user-avatar {
@@ -144,7 +149,7 @@ html, body {
         .dropdown-menu {
             position: absolute;
             top: 50px;
-            padding: 5px 0;
+            padding: 0;
             background-color: #ffffff;
             box-shadow: 0 1px 3px #666666;
         }
