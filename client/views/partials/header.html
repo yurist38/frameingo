@@ -13,14 +13,14 @@
                             </a>
                         </li>
                         {{#if currentUser}}
-                            <li>
+                            <li class="menu-item">
                                 <a href="{{pathFor route='eventlist'}}" class="visible-md">
                                     <i class="picon picon-list"></i>
                                     {{_ 'global.my-events'}}
                                 </a>
                             </li>
                         {{/if}}
-                        <li>
+                        <li class="menu-item">
                             <a href="{{pathFor route='addevent'}}" class="visible-md">
                                 <i class="picon picon-add"></i>
                                 {{_ 'global.add-event' }}
@@ -84,7 +84,7 @@
                                 </ul>
                             </li>
                         {{ else }}
-                            <li>
+                            <li class="sign-in">
                                 <button type="button" id="loginBtn" class="btn btn-info navbar-btn">
                                     <i class="fa fa-instagram"></i>&nbsp;
                                     {{_ 'global.sign-in' }}
