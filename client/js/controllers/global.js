@@ -1,6 +1,6 @@
 Router.plugin('seo', {
     defaults: {
-        title: 'InstaPhobia - Event\'s Slideshow',
-        description: 'Instagram Live Feed By Your Tag. Promote event and party.'
+        title: 'InstaPhobia - Live Instashow',
+        description: 'Live Instagram Feed Slideshow for your event, party or just for fun!'
     }
 });

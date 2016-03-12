@@ -2,99 +2,114 @@
     {{#if Template.subscriptionsReady}}
     <nav class="navbar navbar-default" id="navPanel">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-7">
-                    <ul class="nav navbar-nav nav-left">
-                        <li>
-                            <a class="navbar-brand instaphobia-title" href="{{ pathFor route='home' }}">
-                                <img src="/images/logo-small.png" class="logo-img" alt="Logo">
-                                InstaPhobia
-                                <span class="beta">beta</span>
-                            </a>
-                        </li>
-                        {{#if currentUser}}
-                            <li class="menu-item">
-                                <a href="{{pathFor route='eventlist'}}" class="visible-md">
+            <ul class="nav navbar-nav nav-left">
+                <li>
+                    <a class="navbar-brand instaphobia-title" href="{{ pathFor route='home' }}">
+                        <img src="/images/instaphobia-logo.svg" class="logo-img" alt="Logo">
+                        InstaPhobia
+                        <span class="beta">beta</span>
+                    </a>
+                </li>
+                <!-- {{#if currentUser}}
+                    <li class="menu-item">
+                        <a href="{{pathFor route='eventlist'}}" class="visible-md">
+                            <i class="picon picon-list"></i>
+                            {{_ 'global.my-events'}}
+                        </a>
+                    </li>
+                {{/if}}
+                <li class="menu-item">
+                    <a href="{{pathFor route='addevent'}}" class="visible-md">
+                        <i class="picon picon-add"></i>
+                        {{_ 'global.add-event' }}
+                    </a>
+                </li>-->
+                <li class="dropdown langs menu-item">
+                    <a href="dropdown-toggle" data-toggle="dropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">
+                        {{ languageTag }}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" id="langsMenu">
+                        {{#each langs }}
+                            <li>
+                                <a href="#" data-lang="{{ this }}">
+                                    <img src="/images/flag-{{ this }}.png"
+                                        class="flag-img" alt="{{ this }}">
+                                    {{ this }}
+                                </a>
+                            </li>
+                        {{/each }}
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav pull-right">
+
+                {{#if isUserEventsExists }}
+                    <li class="menu-item hidden-xs">
+                        <a href="{{pathFor route='eventlist'}}" class="showing-link">
+                            <i class="picon picon-list"></i>
+                            {{_ 'global.my-events'}}
+                        </a>
+                    </li>
+                {{ else }}
+                    <li class="menu-item hidden-xs">
+                        <a href="{{pathFor route='addevent'}}" class="showing-link">
+                            <i class="picon picon-add"></i>
+                            {{_ 'global.add-event' }}
+                        </a>
+                    </li>
+                {{/if }}
+
+                {{#if currentUser}}
+                    <li class="dropdown">
+                        <a href="dropdown-toggle" data-toggle="dropdown"
+                            role="button" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ userPic }}" class="user-avatar" alt="{{ userName }}">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                {{ userName }}
+                            </li>
+                            <li>
+                                <a href="{{pathFor route='eventlist'}}">
                                     <i class="picon picon-list"></i>
-                                    {{_ 'global.my-events'}}
+                                    {{_ 'global.my-events' }}
                                 </a>
                             </li>
-                        {{/if}}
-                        <li class="menu-item">
-                            <a href="{{pathFor route='addevent'}}" class="visible-md">
-                                <i class="picon picon-add"></i>
-                                {{_ 'global.add-event' }}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xs-5 nav-right">
-                    <ul class="nav navbar-nav pull-right">
-                        <li class="dropdown langs">
-                            <a href="dropdown-toggle" data-toggle="dropdown"
-                                role="button" aria-haspopup="true" aria-expanded="false">
-                                {{ languageTag }}
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" id="langsMenu">
-                                {{#each langs }}
-                                    <li>
-                                        <a href="#" data-lang="{{ this }}">
-                                            <img src="/images/flag-{{ this }}.png"
-                                                class="flag-img" alt="{{ this }}">
-                                            {{ this }}
-                                        </a>
-                                    </li>
-                                {{/each }}
-                            </ul>
-                        </li>
-                        {{#if currentUser}}
-                            <li class="dropdown">
-                                <a href="dropdown-toggle" data-toggle="dropdown"
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ userPic }}" class="user-avatar" alt="Profile">
-                                    <span class="visible-md">{{ userName }}</span>
-                                    <span class="caret"></span>
+                            <li>
+                                <a href="{{pathFor route='addevent'}}">
+                                    <i class="picon picon-add"></i>
+                                    {{_ 'global.add-event' }}
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{pathFor route='eventlist'}}">
-                                            <i class="picon picon-list"></i>
-                                            {{_ 'global.my-events' }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{pathFor route='addevent'}}">
-                                            <i class="picon picon-add"></i>
-                                            {{_ 'global.add-event' }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{pathFor route='profile'}}">
-                                            <i class="picon picon-profile"></i>
-                                            {{_ 'global.profile' }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" id="logoutBtn">
-                                            <i class="picon picon-logout"></i>
-                                            {{_ 'global.logout' }}
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
-                        {{ else }}
-                            <li class="sign-in">
-                                <button type="button" id="loginBtn" class="btn btn-info navbar-btn">
-                                    <i class="fa fa-instagram"></i>&nbsp;
-                                    {{_ 'global.sign-in' }}
-                                    <span class="hidden-xs">{{{_ 'global.with-instagram' }}}</span>
-                                </button>
+                            <li>
+                                <a href="{{pathFor route='profile'}}">
+                                    <i class="picon picon-profile"></i>
+                                    {{_ 'global.profile' }}
+                                </a>
                             </li>
-                        {{/if}}
-                    </ul>
-                </div>
-            </div>
+                            <li>
+                                <a href="#" id="logoutBtn">
+                                    <i class="picon picon-logout"></i>
+                                    {{_ 'global.logout' }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {{ else }}
+                    <li class="sign-in">
+                        <button type="button" id="loginBtn" class="btn btn-info navbar-btn">
+                            <i class="picon picon-instagram"></i>&nbsp;
+                            {{_ 'global.sign-in' }}
+                            <span class="hidden-xs">{{{_ 'global.with-instagram' }}}</span>
+                        </button>
+                    </li>
+                {{/if}}
+            </ul>
+
         </div>
     </nav>
     {{/if}}

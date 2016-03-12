@@ -11,14 +11,16 @@
         "go-home": "Go home..."
     },
     "index": {
-        "meta-title": "InstaPhobia - Event's Slideshow",
-        "meta-description": "Instagram Live Feed By Your Tag. Promote event and party.",
+        "meta-title": "InstaPhobia - Live Instashow",
+        "meta-description": "Live Instagram Feed Slideshow for your event, party or just for fun!",
         "tip1": "Create your event <br>with unique hashtag",
         "tip2": "Ask guests to post pics <br>to Instagram by your hashtag",
         "tip3": "Show new photos in realtime <br>on a big screen",
         "tip4": "Enjoy your party <br>together!"
     },
     "add-event": {
+        "meta-title": "New event [InstaPhobia]",
+        "meta-description": "Please specify your event details and run slideshow",
         "event-name": "Event's name",
         "event-name-placeholder": "MyBirthday",
         "tag": "Tag",
@@ -30,6 +32,8 @@
         "error-not-valid": "Check value please, must be single word..."
     },
     "event-list": {
+        "meta-title": "My events [InstaPhobia]",
+        "meta-description": "Please find full list of your added events.",
         "no-events": "You have no added events. Please add your first event...",
         "add-event": "Add event",
         "run-slideshow": "Run slideshow",
@@ -40,5 +44,9 @@
         "fullname": "Full Name",
         "biography": "Biography",
         "website": "Website"
+    },
+    "slideshow": {
+        "meta-title": "#%s [InstaPhobia]",
+        "meta-description": "Instagram Slideshow Online for FREE"
     }
 }

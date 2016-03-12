@@ -1,17 +1,17 @@
 @font-face {
     font-family: 'phobia';
-    src:    url('fonts/phobia.eot?p6kzad');
-    src:    url('fonts/phobia.eot?p6kzad#iefix') format('embedded-opentype'),
-        url('fonts/phobia.ttf?p6kzad') format('truetype'),
-        url('fonts/phobia.woff?p6kzad') format('woff'),
-        url('fonts/phobia.svg?p6kzad#phobia') format('svg');
+    src:    url('fonts/phobia.eot?1z704p');
+    src:    url('fonts/phobia.eot?1z704p#iefix') format('embedded-opentype'),
+        url('fonts/phobia.ttf?1z704p') format('truetype'),
+        url('fonts/phobia.woff?1z704p') format('woff'),
+        url('fonts/phobia.svg?1z704p#phobia') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 .picon {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'phobia';
+    font-family: 'phobia' !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -30,8 +30,36 @@
 .picon-add-event:before {
     content: "\e900";
 }
+.picon-check:before {
+    content: "\e910";
+}
+.picon-edit:before {
+    content: "\e90e";
+}
+.picon-instagram:before {
+    content: "\e90f";
+}
 .picon-list:before {
     content: "\e907";
+}
+.picon-logo .path1:before {
+    content: "\e908";
+    color: rgb(4, 4, 145);
+}
+.picon-logo .path2:before {
+    content: "\e909";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+.picon-logo .path3:before {
+    content: "\e90a";
+    margin-left: -1em;
+    color: rgb(4, 4, 145);
+}
+.picon-logo .path4:before {
+    content: "\e90b";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
 }
 .picon-logout:before {
     content: "\e904";
@@ -39,8 +67,14 @@
 .picon-party:before {
     content: "\e901";
 }
+.picon-plus:before {
+    content: "\e90d";
+}
 .picon-profile:before {
     content: "\e906";
+}
+.picon-remove:before {
+    content: "\e90c";
 }
 .picon-screen:before {
     content: "\e902";
@@ -48,3 +82,4 @@
 .picon-selfie:before {
     content: "\e903";
 }
+

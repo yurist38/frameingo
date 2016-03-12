@@ -10,11 +10,15 @@ Template.header.helpers({
             return [index];
         });
         return langsArray;
+    },
+    isUserEventsExists() {
+        return !!Meteor.user() && !!Events.find({"userId": Meteor.user()._id}).count();
     }
 });
 
 Template.header.created = function() {
     this.subscribe('userData');
+    this.subscribe('userEvents');
 };
 
 Template.header.events({

@@ -16,10 +16,11 @@ html, body {
 }
 
 #navPanel {
-    background-color: #f4f4f4;
+    background-color: $gray-light;
     margin-bottom: 0;
     border: none;
     border-radius: 0;
+    min-height: 40px;
     .navbar-nav {
         margin: 0;
     }
@@ -27,6 +28,7 @@ html, body {
     .nav-right {
         white-space: nowrap;
         overflow: visible;
+        display: inline-block;
     }
     .visible-md {
         display: inline-block !important;
@@ -35,9 +37,16 @@ html, body {
         display: inline-block;
         vertical-align: top;
         position: relative;
-        margin: 10px 0;
+        margin: 5px 0;
         height: 30px;
         width: auto;
+    }
+    .btn {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 12px;
+        margin: 5px 0;
+        font-size: 1.4rem;
     }
     .dropdown {
         display: inline-block;
@@ -45,7 +54,6 @@ html, body {
         &.langs {
             text-transform: uppercase;
             text-align: right;
-            margin-right: 10px;
             >a {
                 padding: 0;
             }
@@ -81,10 +89,15 @@ html, body {
         }
     }
     li {
+        font-size: 1.4rem;
+        &.menu-item {
+            display: inline-block;
+            margin: 0 15px;
+        }
         a {
             display: inline-block;
-            font-size: 1.2em;
-            line-height: 50px;
+            font-size: 1.4rem;
+            line-height: 40px;
             padding: 0;
             font-family: 'Cantarell', 'Asap', Arial, sans-serif;
             .picon {
@@ -97,10 +110,12 @@ html, body {
                 font-family: 'billabongregular', Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                font-size: 40px;
-                line-height: 70px;
+                font-size: 30px;
+                line-height: 60px;
                 color: #040491;
                 white-space: nowrap;
+                display: inline-block;
+                height: 40px;
                 .beta {
                     position: relative;
                     top: -12px;
@@ -112,16 +127,13 @@ html, body {
         &.sign-in {
             display: inline-block;
         }
-        &.menu-item {
-            margin-left: 15px;
-        }
     }
     .user-avatar {
         display: inline-block;
         vertical-align: top;
         margin-top: 5px;
         position: relative;
-        height: 40px;
+        height: 30px;
         width: auto;
         border-radius: 5px;
     }
@@ -148,7 +160,7 @@ html, body {
     #navPanel {
         .dropdown-menu {
             position: absolute;
-            top: 50px;
+            top: 40px;
             padding: 0;
             background-color: #ffffff;
             box-shadow: 0 1px 3px #666666;

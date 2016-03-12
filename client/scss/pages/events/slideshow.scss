@@ -1,12 +1,13 @@
 @import "../../_variables.scss";
 
 .slideshow {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 40px);
     width: 100%;
     display: block;
     overflow: hidden;
     position: relative;
     margin: 0 auto;
+    background-color: #000000;
     .grids-dropdown {
         position: absolute;
         z-index: 2;
@@ -38,7 +39,7 @@
                 flex: 1 0 auto;
             }
             .item0 {
-                width: calc(100vh - 50px);
+                width: calc(100vh - 40px);
                 height: 100%;
                 flex-grow: 1;
             }
@@ -51,7 +52,7 @@
 
         &[data-template="grid2"] {
             height: 100%;
-            width: calc(100vh - 50px);
+            width: calc(100vh - 40px);
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
@@ -83,7 +84,7 @@
                 height: calc(50vh - 25px);
             }
             .item2 {
-                width: calc(100vh - 50px);
+                width: calc(100vh - 40px);
                 height: 100%;
                 flex-grow: 1;
             }
@@ -141,7 +142,7 @@
                 height: 150vw;
                 width: 100vw;
                 flex-direction: row;
-                margin-top: calc((100vh - 50px - 150vw)/2);
+                margin-top: calc((100vh - 40px - 150vw)/2);
                 .item0 {
                     width: 100vw;
                     height: 100vw;
@@ -155,7 +156,7 @@
             &[data-template="grid2"] {
                 height: 100vw;
                 width: 100vw;
-                margin-top: calc((100vh - 50px - 100vw) / 2);
+                margin-top: calc((100vh - 40px - 100vw) / 2);
                 .item {
                     width: 50vw;
                     height: 50vw;
@@ -164,7 +165,7 @@
             &[data-template="grid3"] {
                 height: 200vw;
                 width: 100vw;
-                margin-top: calc((100vh - 50px - 200vw) / 2);
+                margin-top: calc((100vh - 40px - 200vw) / 2);
                 flex-direction: row;
                 .item0,
                 .item1 {

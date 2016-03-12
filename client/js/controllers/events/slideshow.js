@@ -25,7 +25,8 @@ Template.slideshow.created = () => {
         EventData.find({}, {sort: {Field: -1}, limit: 1}).fetch()[0]._id : '';
     request_url = 'https://api.instagram.com/v1/tags/' + currentEvent().tag + '/media/recent';
     params = {
-        access_token: Meteor.user().services.instagram.accessToken,
+        access_token: Meteor.user() ? Meteor.user().services.instagram.accessToken :
+            Meteor.settings.commonAccessToken,
         count: Grids.findOne({"name": currentEvent().grid}).quantity
     };
     getItems();
