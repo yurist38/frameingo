@@ -8,28 +8,14 @@
     position: relative;
     margin: 0 auto;
     background-color: #000000;
-    .grids-dropdown {
-        position: absolute;
-        z-index: 2;
-        left: 10px;
-        top: 10px;
-        opacity: 0.6;
-        a:hover {
-            text-decoration: none;
-        }
-        .dropdown-menu {
-            min-width: auto;
-        }
-        img {
-            height: 40px;
-            width: auto;
-        }
-    }
     .slide-content {
+        position: relative;
+        left: 50%;
+        margin: 0;
         &[data-template="grid1"] {
             height: 100%;
-            width: calc(150vh - 75px);
-            margin: 0 auto;
+            width: calc(150vh - 60px);
+            margin-left: calc(30px - 75vh);
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -45,15 +31,15 @@
             }
             .item1,
             .item2 {
-                width: calc(50vh - 25px);
-                height: calc(50vh - 25px);
+                width: calc(50vh - 20px);
+                height: calc(50vh - 20px);
             }
         }
 
         &[data-template="grid2"] {
             height: 100%;
             width: calc(100vh - 40px);
-            margin: 0 auto;
+            margin-left: calc(20px - 50vh);
             display: flex;
             flex-wrap: wrap;
             .item {
@@ -69,7 +55,7 @@
         &[data-template="grid3"] {
             height: 100%;
             width: calc(200vh - 100px);
-            margin: 0 auto;
+            margin-left: calc(50px - 100vh);
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -80,8 +66,8 @@
             }
             .item0,
             .item1 {
-                width: calc(50vh - 25px);
-                height: calc(50vh - 25px);
+                width: calc(50vh - 20px);
+                height: calc(50vh - 20px);
             }
             .item2 {
                 width: calc(100vh - 40px);
@@ -90,8 +76,8 @@
             }
             .item3,
             .item4 {
-                width: calc(50vh - 25px);
-                height: calc(50vh - 25px);
+                width: calc(50vh - 20px);
+                height: calc(50vh - 20px);
             }
         }
 

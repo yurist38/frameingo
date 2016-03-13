@@ -18,8 +18,33 @@ Template.errorLogin.events({
     }
 });
 
+Template.index.rendered = () => {
+    $('#indexForm').validate({
+        rules: {
+            indexTagField: {
+                required: true,
+                singleWord: true
+            }
+        },
+        errorPlacement: function(error, element) {}
+    });
+};
+
+Template.index.helpers({
+    formStatus() {
+        return Session.get('tag') ? 'hidden' : '';
+    }
+});
+
 Template.index.events({
-    'click .block1': () => {
-        Router.go('addevent');
+    'submit #indexForm': (e) => {
+        e.preventDefault();
+        let tag = $('#indexTagField').val();
+        $('#headerFormLi').removeClass('hidden');
+        $('#indexForm').addClass('hidden');
+        Router.go('search', {tag: tag});
+    },
+    'input #indexTagField': () => {
+        $('#indexBtnGo').prop('disabled', !$('#indexForm').valid());
     }
 });

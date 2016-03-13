@@ -1,4 +1,4 @@
-Template.addevent.onRendered(function() {
+Template.addevent.rendered = () => {
     $('#addEventForm').validate({
         rules: {
             eventName: {
@@ -13,7 +13,7 @@ Template.addevent.onRendered(function() {
         errorPlacement: function(error, element) {}
     });
     $('input.radioImageSelect').radioImageSelect();
-});
+};
 
 Template.addevent.events({
     'click #addEventLoginBtn': Meteor.loginWithInstagram,
@@ -36,8 +36,8 @@ Template.addevent.events({
             alert(TAPi18n.__('add-event.error-not-added'));
         }
     },
-    'input input': function(event) {
-        $('#saveEventBtn').attr('disabled', !$(event.target).closest('form').valid());
+    'input input': () => {
+        $('#saveEventBtn').prop('disabled', !$('#addEventForm').valid());
     }
 });
 
@@ -47,11 +47,3 @@ function isNameExists(name) {
         "userId": Meteor.userId()
     });
 }
-
-jQuery.validator.addMethod("singleWord", function(value, element) {
-    if (/^[A-Za-zА-ЯЁа-яё0-9]+$/.test(value)) {
-        return true;
-    } else {
-        return false;
-    }
-}, TAPi18n.__('add-event.error-not-valid'));

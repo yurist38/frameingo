@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'phobia';
-    src:    url('fonts/phobia.eot?1z704p');
-    src:    url('fonts/phobia.eot?1z704p#iefix') format('embedded-opentype'),
-        url('fonts/phobia.ttf?1z704p') format('truetype'),
-        url('fonts/phobia.woff?1z704p') format('woff'),
-        url('fonts/phobia.svg?1z704p#phobia') format('svg');
+    src:    url('fonts/phobia.eot?mz9w7u');
+    src:    url('fonts/phobia.eot?mz9w7u#iefix') format('embedded-opentype'),
+        url('fonts/phobia.ttf?mz9w7u') format('truetype'),
+        url('fonts/phobia.woff?mz9w7u') format('woff'),
+        url('fonts/phobia.svg?mz9w7u#phobia') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,11 +30,17 @@
 .picon-add-event:before {
     content: "\e900";
 }
+.picon-arrow-go:before {
+    content: "\e912";
+}
 .picon-check:before {
     content: "\e910";
 }
 .picon-edit:before {
     content: "\e90e";
+}
+.picon-hash:before {
+    content: "\e911";
 }
 .picon-instagram:before {
     content: "\e90f";
@@ -79,7 +85,13 @@
 .picon-screen:before {
     content: "\e902";
 }
+.picon-search:before {
+    content: "\e913";
+}
 .picon-selfie:before {
     content: "\e903";
+}
+.picon-settings:before {
+    content: "\e914";
 }
 

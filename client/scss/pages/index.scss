@@ -4,94 +4,64 @@
     background-image: url('/images/index-bg.jpg');
     position: relative;
     height: calc(100vh - 40px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .howto {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        height: calc(100% - 40px);
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
-        align-items: center;
-        .block {
+    .tag-field-wrapper {
+        form {
             position: relative;
             display: block;
-            min-width: calc(50% - 30px);
-            max-width: calc(50% - 30px);
-            height: auto;
-            margin: 15px;
-            padding: 30px;
+            width: 100%;
+            white-space: normal;
+        }
+        display: block;
+        position: relative;
+        max-width: 400px;
+        min-width: 200px;
+        width: 90%;
+        height: 50px;
+        font-size: 2.4rem;
+        line-height: 50px;
+        .picon-hash {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 50px;
+            text-align: right;
+            color: darken($gray, 30%);
+            line-height: 50px;
+        }
+        input {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 10px 0 30px;
+            border: 1px solid $gray;
+            width: calc(100% - 70px);
+            height: 50px;
+        }
+        .btn-go {
+            float: right;
+            width: 70px;
+            height: 50px;
+            background-color: $main-color;
+            color: #ffffff;
             text-align: center;
-            color: #333;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            border: 1px solid #fff;
-            box-shadow: 0 0 15px #ccc;
-            &:before {
-                display: block;
-                position: absolute;
-                left: -1px;
-                top: -1px;
-                width: 30px;
-                height: 30px;
-                line-height: 30px;
-                text-align: center;
-                font-size: 1.5rem;
-                color: #fff;
-                border-radius: 10px 0 10px 0;
-                border: 1px solid #fff;
-                background-color: #999;
-            }
-            &:nth-of-type(1):before {
-                content: '1';
-            }
-            &:nth-of-type(2):before {
-                content: '2';
-            }
-            &:nth-of-type(3):before {
-                content: '3';
-            }
-            &:nth-of-type(4):before {
-                content: '4';
-            }
-            &.block1 {
-                cursor: pointer;
-                transition: all 0.3s ease-in;
-                &:hover {
-                    background-color: #ffffff;
-                }
-            }
-            .picon {
-                display: block;
-                text-align: center;
-                font-size: 85px;
-                margin-bottom: 15px;
-            }
-            p {
-                font-size: 2rem;
+            border: 1px solid #666;
+            transition: all 0.3s ease-in;
+            &:hover {
+                background-color: lighten($main-color, 10%);
             }
         }
     }
+
 }
 
 @media only screen and (max-width: $screen-sm) {
     .content.index {
-        .howto {
-            .block {
-                min-width: calc(100% - 30px);
-                max-width: calc(100% - 30px);
-                padding: 10px;
-                .picon {
-                    font-size: 40px;
-                    float: left;
-                    margin: 0 5px 0 20px;
-                }
-                p {
-                    font-size: 1.2rem;
-                    margin: 0;
-                }
-            }
-        }
+
     }
 }

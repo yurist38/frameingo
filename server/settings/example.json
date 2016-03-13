@@ -1,4 +1,7 @@
 {
     "clientId": "<your-client-ID>",
-    "secret": "<your-client-secret>"
+    "secret": "<your-client-secret>",
+    "public": {
+        "commonAccessToken": "<use-this-token-if-user-not-logged-in>"
+    }
 }

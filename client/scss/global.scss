@@ -11,16 +11,22 @@ html, body {
     box-sizing: border-box;
 }
 
+*::placeholder {
+    color: #ccc;
+}
+
 .container.top-padding {
     padding-top: 30px;
 }
 
 #navPanel {
     background-color: $gray-light;
-    margin-bottom: 0;
+    margin: 0;
     border: none;
     border-radius: 0;
     min-height: 40px;
+    height: 40px;
+    z-index: 2;
     .navbar-nav {
         margin: 0;
     }
@@ -112,7 +118,7 @@ html, body {
                 padding: 0;
                 font-size: 30px;
                 line-height: 60px;
-                color: #040491;
+                color: $main-color;
                 white-space: nowrap;
                 display: inline-block;
                 height: 40px;
@@ -136,6 +142,92 @@ html, body {
         height: 30px;
         width: auto;
         border-radius: 5px;
+    }
+    #headerFormLi {
+        display: inline-block;
+        position: relative;
+        width: auto;
+        height: 40px;
+        padding: 0;
+        font-size: 1.6rem;
+        line-height: 30px;
+        form {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            height: 30px;
+            margin: 5px 0;
+            white-space: normal;
+        }
+        .picon-hash {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 30px;
+            text-align: right;
+            color: darken($gray, 30%);
+            line-height: 30px;
+        }
+        input {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 10px 0 25px;
+            border: 1px solid $gray;
+            width: 200px;
+            height: 30px;
+        }
+        .btn-go {
+            width: 50px;
+            height: 30px;
+            float: right;
+            font-size: 1.3rem;
+            background-color: $main-color;
+            color: #ffffff;
+            text-align: center;
+            border: 1px solid #666;
+            transition: all 0.3s ease-in;
+            &:hover {
+                background-color: lighten($main-color, 10%);
+            }
+        }
+        .grids-dropdown {
+            opacity: 0.6;
+            height: 40px;
+            vertical-align: top;
+            a {
+                line-height: 40px;
+                height: 40px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            .dropdown-menu {
+                min-width: auto;
+                margin-top: 0;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                li {
+                    padding: 0;
+                    a {
+                        padding: 0 15px;
+                    }
+                    &.active {
+                        a {
+                            background-color: $gray;
+                        }
+                    }
+                }
+            }
+            img {
+                height: 30px;
+                width: auto;
+                margin: 5px 0;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
     }
 }
 

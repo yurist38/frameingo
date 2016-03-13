@@ -8,7 +8,8 @@
         "with-instagram": "with <b>Instagram</b>",
         "sorry-login": "Sorry, login first please...",
         "error-404-msg": "Welcome to 404 page! This page is not found...",
-        "go-home": "Go home..."
+        "go-home": "Go home...",
+        "tag-placeholder": "YourTag"
     },
     "index": {
         "meta-title": "InstaPhobia - Live Instashow",

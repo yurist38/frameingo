@@ -10,20 +10,6 @@
                         <span class="beta">beta</span>
                     </a>
                 </li>
-                <!-- {{#if currentUser}}
-                    <li class="menu-item">
-                        <a href="{{pathFor route='eventlist'}}" class="visible-md">
-                            <i class="picon picon-list"></i>
-                            {{_ 'global.my-events'}}
-                        </a>
-                    </li>
-                {{/if}}
-                <li class="menu-item">
-                    <a href="{{pathFor route='addevent'}}" class="visible-md">
-                        <i class="picon picon-add"></i>
-                        {{_ 'global.add-event' }}
-                    </a>
-                </li>-->
                 <li class="dropdown langs menu-item">
                     <a href="dropdown-toggle" data-toggle="dropdown"
                         role="button" aria-haspopup="true" aria-expanded="false">
@@ -41,6 +27,31 @@
                             </li>
                         {{/each }}
                     </ul>
+                </li>
+                <li class="{{ formStatus }}" id="headerFormLi">
+                    <form id="headerForm">
+                        <i class="picon picon-hash"></i>
+                        <input type="text" name="header" id="headerTagField" value={{ activeTag }}
+                            placeholder="{{_ 'global.tag-placeholder'}}" required>
+                        <button type="submit" class="btn-go" id="headerBtnGo">
+                            <i class="picon picon-search"></i>
+                        </button>
+                    </form>
+                    <div class="dropdown grids-dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            <img src="/images/grids/{{ activeGrid }}.png">
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {{#each grids }}
+                                <li class="grid-li {{ isGridActive name }}">
+                                    <a href="#" id="{{ name }}" class="text-center">
+                                        <img src="/images/grids/{{ name }}.png">
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
                 </li>
             </ul>
 
