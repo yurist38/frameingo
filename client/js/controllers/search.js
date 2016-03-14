@@ -1,14 +1,4 @@
-import getImages from '../modules/get-items';
-
 Template.search.helpers({
-    items() {
-        if (!Session.get('currentCollectionId')) return false;
-        let resultObj = EventData.findOne({_id: Session.get('currentCollectionId')});
-        let result = $.map(resultObj, (value, index) => {
-            if (index !== '_id') return [value];
-        });
-        return result;
-    },
     activeGrid() {
         return getActiveGrid();
     },

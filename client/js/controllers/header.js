@@ -75,17 +75,6 @@ Template.header.events({
     }
 });
 
-function isEvent() {
-    return Router.current().route.getName() === 'event';
-}
-
-function currentEvent() {
-    return Events.findOne({
-        "name": Router.current().params.name,
-        "userId": Meteor.userId()
-    });
-}
-
 function getActiveTag() {
     return isEvent() ? currentEvent().tag : Session.get('tag');
 }
@@ -106,8 +95,16 @@ function setActiveGrid(gridName) {
                 grid: gridName
             }
         });
+        getImages(
+            Meteor.user().services.instagram.accessToken,
+            currentEvent().grid,
+            currentEvent().tag
+        );
     } else {
         Session.set('grid', gridName);
         Session.set('picsNum', Grids.findOne({"name": gridName}).quantity);
+        let token = Meteor.user() ? Meteor.user().services.instagram.accessToken :
+            Meteor.settings.public.commonAccessToken;
+        getImages(token, getActiveGrid(), getActiveTag());
     }
 }

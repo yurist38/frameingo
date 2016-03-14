@@ -95,15 +95,13 @@ softwarerero:accounts-t9n@1.2.2
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 srp@1.0.4
-tap:i18n@1.7.0
+tap:i18n@1.8.0
 templating@1.1.5
 templating-tools@1.0.0
 themeteorchef:jquery-validation@1.14.0
 tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4
-universe:modules@0.6.8
-universe:modules-compiler@1.0.5
 url@1.0.5
 useraccounts:core@1.13.1
 useraccounts:semantic-ui@1.13.1
