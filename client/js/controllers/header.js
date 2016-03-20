@@ -28,6 +28,13 @@ Template.header.helpers({
     },
     activeTag() {
         return getActiveTag();
+    },
+    userEvents() {
+        return Events.find().fetch();
+    },
+    isDisabled(eventName) {
+        return (Router.current().route.getName() === 'event' &&
+            eventName === Router.current().params.name) ? 'disabled' : '';
     }
 });
 
@@ -38,15 +45,7 @@ Template.header.created = function() {
 };
 
 Template.header.rendered = () => {
-    $('#headerForm').validate({
-        rules: {
-            headerTagField: {
-                required: true,
-                singleWord: true
-            }
-        },
-        errorPlacement: function(error, element) {}
-    });
+    validateFormOrWait();
 };
 
 Template.header.events({
@@ -61,6 +60,10 @@ Template.header.events({
         let newLang = $(e.currentTarget).data('lang');
         TAPi18n.setLanguage(newLang);
         I18NConf.setLanguage(newLang);
+        if (iPhobia.validatorHeaderForm)
+            iPhobia.validatorHeaderForm.settings.messages.tagField = TAPi18n.__('add-event.error-not-valid');
+        if (iPhobia.validatorIndexForm)
+            iPhobia.validatorIndexForm.settings.messages.tagField = TAPi18n.__('add-event.error-not-valid');
     },
     'submit #headerForm': (e) => {
         e.preventDefault();
@@ -72,6 +75,65 @@ Template.header.events({
     },
     'click .grid-li a': (e) => {
         setActiveGrid(e.currentTarget.id);
+    },
+    'click .event-edit-btn': (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        let name = $(e.currentTarget).closest('.li-event').find('.event-name').val();
+        if (!$(e.currentTarget).hasClass('disabled')) {
+            editEvent($(e.currentTarget).closest('.li-event'));
+        }
+    },
+    'click .event-remove-btn': (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        let name = $(e.currentTarget).closest('.li-event').find('.event-name').val();
+        if (!$(e.currentTarget).hasClass('disabled')) {
+            removeEvent($(e.currentTarget).data('eventid'));
+        }
+    },
+    'click .cancel-edit-btn': (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        let $currentLi = $(e.currentTarget).closest('.li-event'),
+            $inputName = $currentLi.find('.event-name'),
+            $inputTag = $currentLi.find('.event-tag');
+        $inputName.val($inputName.data('current-value')).attr('readonly', true);
+        $inputTag.val($inputTag.data('current-value')).attr('readonly', true);
+        $currentLi.removeClass('editing');
+    },
+    'click .event-link': (e) => {
+        if ($(e.currentTarget).closest('.li-event').hasClass('editing')) {
+            e.preventDefault();
+            e.stopPropagation();
+        } else {
+            $('.showing-link').dropdown('toggle');
+        }
+    },
+    'submit .event-form': (e) => {
+        e.preventDefault();
+        updateEvent($(e.currentTarget));
+    },
+    'click .new-event-btn': (e) => {
+        e.stopPropagation();
+        $(e.currentTarget).hide(100, function() {
+            $('.new-event-form').removeClass('hidden');
+            $(this).next('.new-event-form').find('.event-name').val('').focus();
+            $(this).next('.new-event-form').find('.event-tag').val('');
+            validateEventForm('newEventForm');
+        });
+    },
+    'click .cancel-new-btn': (e) => {
+        e.stopPropagation();
+        $('.new-event-form').addClass('hidden');
+        $('.new-event-btn').show();
+    },
+    'submit #newEventForm': (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        addEvent($(e.currentTarget));
+        $('.new-event-form').addClass('hidden');
+        $('.new-event-btn').show();
     }
 });
 
@@ -106,5 +168,54 @@ function setActiveGrid(gridName) {
         let token = Meteor.user() ? Meteor.user().services.instagram.accessToken :
             Meteor.settings.public.commonAccessToken;
         getImages(token, getActiveGrid(), getActiveTag());
+    }
+}
+
+function editEvent($el) {
+    $el.addClass('editing');
+    let $inputName = $el.find('.event-name'),
+        $inputTag = $el.find('.event-tag');
+    $inputName.attr('data-current-value', $inputName.val()).attr('readonly', false).focus();
+    $inputTag.attr('data-current-value', $inputTag.val()).attr('readonly', false);
+    validateEventForm($el.find('form').attr('id'));
+}
+
+function updateEvent($form) {
+    let $newNameInput = $form.find('.event-name'),
+        $newTagInput = $form.find('.event-tag'),
+        eventId = $form.attr('id').substring(5);
+    Events.update({
+        _id: eventId
+    }, {
+        $set: {
+            name: $newNameInput.val(),
+            tag: $newTagInput.val()
+        }
+    });
+    $newNameInput.attr('readonly', true);
+    $newTagInput.attr('readonly', true);
+    $form.closest('.li-event').removeClass('editing');
+}
+
+function removeEvent(id) {
+    Events.remove({'_id': id});
+}
+
+function addEvent($form) {
+    let $newNameInput = $form.find('.event-name'),
+        $newTagInput = $form.find('.event-tag');
+    Events.insert({
+        "userId": Meteor.user()._id,
+        "name": $newNameInput.val(),
+        "tag": $newTagInput.val(),
+        "grid": 'grid1'
+    });
+}
+
+function validateFormOrWait() {
+    if ($('#headerFormLi').is(':visible')) {
+        iPhobia.validatorHeaderForm = validateForm('headerForm');
+    } else {
+        setTimeout(validateFormOrWait, 1000);
     }
 }

@@ -10,12 +10,6 @@
     align-items: center;
 
     .tag-field-wrapper {
-        form {
-            position: relative;
-            display: block;
-            width: 100%;
-            white-space: normal;
-        }
         display: block;
         position: relative;
         max-width: 400px;
@@ -24,6 +18,26 @@
         height: 50px;
         font-size: 2.4rem;
         line-height: 50px;
+        form {
+            position: relative;
+            display: block;
+            width: 100%;
+            white-space: normal;
+            label.error {
+                display: block;
+                position: absolute;
+                bottom: -30px;
+                height: 30px;
+                width: 100%;
+                left: 0;
+                background-color: rgba(0,0,0,0.5);
+                color: #ffffff;
+                line-height: 30px;
+                padding: 0 10px;
+                font-size: 1.4rem;
+                margin: 0;
+            }
+        }
         .picon-hash {
             position: absolute;
             display: block;

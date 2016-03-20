@@ -5,13 +5,34 @@ Router.plugin('seo', {
     }
 });
 
-jQuery.validator.addMethod("singleWord", function(value, element) {
-    if (/^[A-Za-zА-ЯЁа-яё0-9]+$/.test(value)) {
-        return true;
-    } else {
-        return false;
+iPhobia = {};
+
+Template.mainLayout.created = () => {
+    TAPi18n.setLanguage(I18NConf.getLanguage());
+    jQuery.validator.addMethod('singleWord', function(value, element) {
+        if (/^[A-Za-zА-ЯЁа-яё0-9]+$/.test(value)) {
+            return true;
+        } else {
+            return false;
+        }
+    }, TAPi18n.__('add-event.error-not-valid'));
+};
+
+Template.mainLayout.rendered = function() {
+    let styles = [
+    'background:#98AFC7;color:#ffffff;font-weight:bold;',
+    'background:#2B547E;color:#ffffff;font-weight:bold;',
+    'background:#2B3856;color:#ffffff;font-weight:bold;'
+    ];
+    console.log ( '%c Welcome to %c Instaphobia\'s %c Underground!',
+        styles[0], styles[1], styles[2]);
+};
+
+Template.errorLogin.events({
+    'click #addEventLoginBtn': () => {
+        Meteor.loginWithInstagram( () => {} );
     }
-}, TAPi18n.__('add-event.error-not-valid'));
+});
 
 Template.registerHelper("items", function(){
     if (!Session.get('currentCollectionId')) return false;
@@ -45,7 +66,7 @@ getImages = function(token, grid, tag) {
 
 getItems = function() {
     let curRoute = Router.current().route.getName();
-    if(curRoute !== 'search' || curRoute !== 'event') return false;
+    if(curRoute !== 'search' && curRoute !== 'event') return false;
     let token = Meteor.user() ? Meteor.user().services.instagram.accessToken :
         Meteor.settings.public.commonAccessToken;
     let activeGrid = isEvent() ? currentEvent().grid : Session.get('grid') || 'grid1';
@@ -62,4 +83,37 @@ currentEvent = function() {
 
 isEvent = function() {
     return Router.current().route.getName() === 'event';
+}
+
+validateForm = function(id) {
+    return $('#' + id).validate({
+        rules: {
+            tagField: {
+                required: true,
+                singleWord: true
+            }
+        },
+        messages: {
+            tagField: TAPi18n.__('add-event.error-not-valid')
+        }
+    });
+}
+
+validateEventForm = function(id) {
+    return $('#' + id).validate({
+        rules: {
+            eventName: {
+                required: true,
+                singleWord: true
+            },
+            eventTag: {
+                required: true,
+                singleWord: true
+            }
+        },
+        messages: {
+            eventName: TAPi18n.__('add-event.error-not-valid'),
+            eventTag: TAPi18n.__('add-event.error-not-valid')
+        }
+    });
 }

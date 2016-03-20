@@ -1,17 +1,5 @@
 Template.addevent.rendered = () => {
-    $('#addEventForm').validate({
-        rules: {
-            eventName: {
-                required: true,
-                singleWord: true
-            },
-            eventTag: {
-                required: true,
-                singleWord: true
-            }
-        },
-        errorPlacement: function(error, element) {}
-    });
+    validateEventForm('addEventForm');
     $('input.radioImageSelect').radioImageSelect();
 };
 

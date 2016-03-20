@@ -38,7 +38,9 @@
         "no-events": "You have no added events. Please add your first event...",
         "add-event": "Add event",
         "run-slideshow": "Run slideshow",
-        "remove-event": "Remove event"
+        "remove-event": "Remove event",
+        "edit-event": "Edit event",
+        "cancel": "Cancel"
     },
     "profile": {
         "username": "User Name",
