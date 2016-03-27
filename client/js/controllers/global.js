@@ -7,9 +7,9 @@ Router.plugin('seo', {
             keywords: ['instagram', 'slideshow', 'party', 'wedding', 'event', 'promotion', 'free', 'instaphobia']
         },
         og: {
+            type: 'website',
             site_name: 'InstaPhobia - Live Instashow',
-            image: 'https://instaphobia.com/images/instaphobia-preview.jpg',
-            type: 'website'
+            image: 'https://instaphobia.com/images/instaphobia-preview.jpg'
         }
     }
 });
