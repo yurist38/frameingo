@@ -49,18 +49,8 @@ Template.index.events({
 });
 
 function generateRandomLists() {
-    var i = 0;
-    while (numberShuffled.length < imgCount) {
-        var randNum = Math.floor(Math.random() * imgCount);
-        if (numberShuffled.indexOf(randNum) < 0) {
-            numberShuffled.push(randNum);
-        }
-    }
-    var i = 0;
-    while (setList.length < collectionCount) {
-        if (numberShuffled[i] < collectionCount) setList.push(++numberShuffled[i]);
-        i++;
-    }
+    numberShuffled = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sort(function() { return 0.5 - Math.random() });
+    setList = [1, 2, 3, 4, 5].sort(function() { return 0.5 - Math.random() });
 }
 
 function fillData() {
@@ -69,8 +59,8 @@ function fillData() {
     var showDelay = setInterval(function() {
         Session.set('randomSlide' + setList[i], { img: currentSet + '/' + numberShuffled[setList[i]] });
         i++;
-        if (i === 5) clearInterval(showDelay);
+        if (i === collectionCount) clearInterval(showDelay);
     }, 150);
-    currentSetIndex = currentSetIndex < 4 ? currentSetIndex + 1 : 0;
+    currentSetIndex = currentSetIndex < collectionCount - 1 ? currentSetIndex + 1 : 0;
     setTimeout(fillData, 7000);
 }

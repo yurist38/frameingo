@@ -1,7 +1,15 @@
 Router.plugin('seo', {
     defaults: {
         title: 'InstaPhobia - Live Instashow',
-        description: 'Live Instagram Feed Slideshow for your event, party or just for fun!'
+        description: 'Live Instagram Feed Slideshow for your event, party or just for fun!',
+        image: 'https://instaphobia.com/images/instaphobia-preview.jpg',
+        meta: {
+            keywords: ['instagram', 'slideshow', 'party', 'wedding', 'event', 'promotion', 'free', 'instaphobia']
+        },
+        og: {
+            site_name: 'InstaPhobia - Live Instashow',
+            image: '/images/instaphobia-preview.jpg'
+        }
     }
 });
 
@@ -96,11 +104,6 @@ getItems = function() {
     var curRoute = Router.current().route.getName();
 
     if (curRoute !== 'search' && curRoute !== 'event') return false;
-
-    //var token = Meteor.user() ? Meteor.user().services.instagram.accessToken :
-    //    Meteor.settings.public.commonAccessToken;
-    //var activeGrid = isEvent() ? currentEvent().grid : Session.get('grid') || 'grid1';
-    //var tag = isEvent() ? currentEvent().tag : Session.get('tag');
     getImages();
 }
 
