@@ -8,6 +8,7 @@ Router.plugin('seo', {
         },
         og: {
             type: 'website',
+            title: 'InstaPhobia - Live Instashow',
             site_name: 'InstaPhobia - Live Instashow',
             image: 'https://instaphobia.com/images/instaphobia-preview.jpg'
         }
