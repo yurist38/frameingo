@@ -8,7 +8,7 @@ Router.plugin('seo', {
         },
         og: {
             site_name: 'InstaPhobia - Live Instashow',
-            image: '/images/instaphobia-preview.jpg'
+            image: 'https://instaphobia.com/images/instaphobia-preview.jpg'
         }
     }
 });
