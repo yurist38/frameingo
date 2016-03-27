@@ -28,7 +28,6 @@ useraccounts:semantic-ui
 accounts-password
 bozhao:accounts-instagram
 seba:minifiers-autoprefixer
-fortawesome:fontawesome
 iron:router
 themeteorchef:jquery-validation
 sacha:spin
