@@ -1,111 +1,107 @@
 @import "../variables.scss";
 
 .content.index {
-    background-image: url('/images/index-bg.jpg');
     position: relative;
-    height: calc(100vh - 50px);
-
-    .howto {
+    padding: 0;
+    .slideshow {
+        z-index: 1;
+    }
+    .screen-wrapper {
+        background-color: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100vh - 40px);
         width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        height: calc(100% - 40px);
         display: flex;
-        flex-wrap: wrap;
-        align-content: center;
+        justify-content: center;
         align-items: center;
-        .block {
-            position: relative;
+        z-index: 2;
+
+        .tag-field-wrapper {
             display: block;
-            min-width: calc(50% - 30px);
-            max-width: calc(50% - 30px);
-            height: auto;
-            margin: 15px;
-            padding: 30px;
-            text-align: center;
-            color: #333;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            border: 1px solid #fff;
-            box-shadow: 0 0 15px #ccc;
-            &:before {
+            position: relative;
+            max-width: 400px;
+            min-width: 200px;
+            width: 90%;
+            height: 50px;
+            font-size: 2.4rem;
+            line-height: 50px;
+            form {
+                position: relative;
                 display: block;
-                position: absolute;
-                left: -1px;
-                top: -1px;
-                width: 30px;
-                height: 30px;
-                line-height: 30px;
-                text-align: center;
-                font-size: 1.5rem;
-                color: #fff;
-                border-radius: 10px 0 10px 0;
-                border: 1px solid #fff;
-                background-color: #999;
-            }
-            &:nth-of-type(1):before {
-                content: '1';
-            }
-            &:nth-of-type(2):before {
-                content: '2';
-            }
-            &:nth-of-type(3):before {
-                content: '3';
-            }
-            &:nth-of-type(4):before {
-                content: '4';
-            }
-            &.block1 {
-                cursor: pointer;
-                transition: all 0.3s ease-in;
-                &:hover {
-                    background-color: #ffffff;
+                width: 100%;
+                white-space: normal;
+                label.error {
+                    display: block;
+                    position: absolute;
+                    bottom: -30px;
+                    height: 30px;
+                    width: 100%;
+                    left: 0;
+                    background-color: rgba(0,0,0,0.5);
+                    color: #ffffff;
+                    line-height: 30px;
+                    padding: 0 10px;
+                    font-size: 1.4rem;
+                    margin: 0;
                 }
             }
-            .picon {
+            .picon-hash {
+                position: absolute;
                 display: block;
-                text-align: center;
-                font-size: 85px;
-                margin-bottom: 15px;
+                top: 0;
+                left: 0;
+                width: 30px;
+                height: 50px;
+                text-align: right;
+                color: darken($gray, 30%);
+                line-height: 50px;
             }
-            p {
-                font-size: 2rem;
+            input {
+                display: inline-block;
+                vertical-align: top;
+                padding: 0 10px 0 30px;
+                border: 1px solid $gray;
+                border-radius: 3px 0 0 3px;
+                width: calc(100% - 80px);
+                height: 50px;
+                background-color: rgba(255,255,255,0.8);
+            }
+            .btn-go {
+                float: right;
+                width: 80px;
+                height: 50px;
+                background-color: $main-color;
+                color: #ffffff;
+                text-align: center;
+                border: none;
+                border-radius: 0 3px 3px 0;
+                transition: all 0.3s ease-in;
+                opacity: 0.92;
+                &:hover {
+                    background-color: lighten($main-color, 10%);
+                }
             }
         }
-    }
-
-    footer {
-        position: absolute;
-        width: 100%;
-        height: 40px;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0,0,0, 0.5);
-        color: #cccccc;
-        line-height: 40px;
-        a {
-            color: #ffffff;
+        footer {
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0, 0.5);
+            color: #cccccc;
+            line-height: 40px;
+            a {
+                color: #ffffff;
+            }
         }
     }
 }
 
 @media only screen and (max-width: $screen-sm) {
     .content.index {
-        .howto {
-            .block {
-                min-width: calc(100% - 30px);
-                max-width: calc(100% - 30px);
-                padding: 10px;
-                .picon {
-                    font-size: 40px;
-                    float: left;
-                    margin: 0 5px 0 20px;
-                }
-                p {
-                    font-size: 1.2rem;
-                    margin: 0;
-                }
-            }
-        }
+
     }
 }
