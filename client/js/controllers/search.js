@@ -13,6 +13,7 @@ Template.search.helpers({
 Template.search.created = () => {
     Session.set('tag', Router.current().params.tag);
     getItems();
+    selectGrid();
 }
 
 function getActiveGrid() {

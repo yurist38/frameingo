@@ -1,14 +1,37 @@
 <template name="index">
-    <div class="content index">
-        <div class="tag-field-wrapper">
-            <form id="indexForm" class="{{ formStatus }}">
-                <i class="picon picon-hash"></i>
-                <input type="text" name="tagField" id="indexTagField" autofocus
-                    placeholder="{{_ 'global.tag-placeholder'}}" required>
-                <button type="submit" class="btn-go" id="indexBtnGo" disabled>
-                    <i class="picon picon-search"></i>
-                </button>
-            </form>
+    <div class="content index slideshow">
+
+        <div class="slide-content" data-template="{{ rightGrid }}">
+            {{#each getPics}}
+                <div class="item item{{ @index }}">
+                    <img src="/images/slides/{{ img }}.jpg" class="slide-img" alt="{{ @index }}">
+                </div>
+            {{/each}}
         </div>
+
+        <div class="screen-wrapper">
+            <div class="tag-field-wrapper">
+                <form id="indexForm" class="{{ formStatus }}">
+                    <i class="picon picon-hash"></i>
+                    <input type="text" name="tagField" id="indexTagField" autofocus
+                        placeholder="{{_ 'global.tag-placeholder'}}" required>
+                    <button type="submit" class="btn-go" id="indexBtnGo" disabled>
+                        <i class="picon picon-search"></i>
+                    </button>
+                </form>
+            </div>
+            <footer>
+                <div class="conteiner-fluid">
+                    <div class="left-side col-sm-6 hidden-xs">
+                        2016 &copy;
+                        <a href="/" target="_blank">InstaPhobia</a>
+                    </div>
+                    <div class="right-side col-xs-12 col-sm-6 text-right">
+                        <a href="mailto:info[@]instaphobia[.]com">info[@]instaphobia[.]com</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
     </div>
 </template>

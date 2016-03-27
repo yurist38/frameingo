@@ -8,8 +8,12 @@
         "with-instagram": "with <b>Instagram</b>",
         "sorry-login": "Sorry, login first please...",
         "error-404-msg": "Welcome to 404 page! This page is not found...",
+        "error-limit": "Sorry! Public Instagram requests limit is exceeded. Please login for unlimited access.",
         "go-home": "Go home...",
-        "tag-placeholder": "YourTag"
+        "tag-placeholder": "YourTag",
+        "images-not-found": "Sorry! Images tagged with your hashtag is not found...",
+        "choose-grid": "Choose grid",
+        "show-author": "Show author"
     },
     "index": {
         "meta-title": "InstaPhobia - Live Instashow",

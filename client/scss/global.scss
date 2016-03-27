@@ -12,7 +12,12 @@ html, body {
 }
 
 *::placeholder {
-    color: $gray;
+    color: #999999;
+}
+
+img[src=""],
+img[src="/images/slides/.jpg"] {
+    display:none;
 }
 
 .container.top-padding {
@@ -26,7 +31,7 @@ html, body {
     border-radius: 0;
     min-height: 40px;
     height: 40px;
-    z-index: 2;
+    z-index: 3;
     .navbar-nav {
         margin: 0;
     }
@@ -305,7 +310,7 @@ html, body {
                 font-weight: bold;
                 white-space: nowrap;
                 &#eventTag-error {
-                    top: 15px;
+                    top: 22px;
                 }
                 &:before {
                     content: '!';
@@ -472,7 +477,7 @@ html, body {
             margin: 0;
         }
         .grids-dropdown {
-            opacity: 0.6;
+            opacity: 0.8;
             height: 40px;
             vertical-align: top;
             a {
@@ -505,6 +510,18 @@ html, body {
                 margin: 5px 0;
                 display: inline-block;
                 vertical-align: top;
+            }
+        } // .grids-dropdown
+        #isShowAuthor {
+            display: inline-block;
+            font-size: 27px;
+            color: $gray;
+            margin: 0 5px;
+            height: 40px;
+            line-height: 42px;
+            cursor: pointer;
+            &.active {
+                color: $gray-dark;
             }
         }
     }
@@ -545,7 +562,6 @@ html, body {
             &.dropdown {
                 a {
                     padding: 0;
-                    min-width: 55px;
                 }
             }
             a.instaphobia-title {
@@ -553,8 +569,25 @@ html, body {
                 line-height: 65px;
             }
         }
+        #headerFormLi {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            padding: 0 15px;
+            form {
+                width: calc(100% - 70px);
+            }
+            input {
+                width: calc(100% - 50px);
+                background-color: rgba(255, 255, 255, 0.7);
+            }
+        }
     }
     .container.top-padding {
-        padding-top: 20px;
+        padding-top: 40px;
+    }
+    .content {
+        padding-top: 50px;
     }
 }

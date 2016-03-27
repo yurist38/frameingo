@@ -7,7 +7,7 @@
                     <a class="navbar-brand instaphobia-title" href="{{ pathFor route='home' }}">
                         <img src="/images/instaphobia-logo.svg" class="logo-img" alt="Logo">
                         InstaPhobia
-                        <span class="beta">beta</span>
+                        <span class="beta hidden-xs">beta</span>
                     </a>
                 </li>
                 <li class="dropdown langs menu-item">
@@ -38,7 +38,8 @@
                         </button>
                     </form>
                     <div class="dropdown grids-dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"
+                            title="{{_ 'global.choose-grid' }}">
                             <img src="/images/grids/{{ activeGrid }}.png">
                             <i class="caret"></i>
                         </a>
@@ -52,6 +53,8 @@
                             {{/each}}
                         </ul>
                     </div>
+                    <i class="picon picon-profile hidden-xs {{ showAuthorStatus }} {{ hiddenOnMain }}"
+                        id="isShowAuthor" title="{{_ 'global.show-author' }}"></i>
                 </li>
             </ul>
 

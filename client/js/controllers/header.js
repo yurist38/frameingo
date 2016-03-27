@@ -35,6 +35,12 @@ Template.header.helpers({
     isDisabled(eventName) {
         return (Router.current().route.getName() === 'event' &&
             eventName === Router.current().params.name) ? 'disabled' : '';
+    },
+    showAuthorStatus() {
+        return Session.get('isShowAuthor') ? 'active' : '';
+    },
+    hiddenOnMain() {
+        return Router.current().route.getName() === 'home' ? 'hidden' : '';
     }
 });
 
@@ -67,14 +73,22 @@ Template.header.events({
     },
     'submit #headerForm': (e) => {
         e.preventDefault();
-        let tag = $('#headerTagField').val();
-        Router.go('search', {tag: tag});
+        var tag = $('#headerTagField').val();
+        Session.set('tag', tag);
+        Session.set('isPagination', false);
+        if (Router.current().route.getName() === 'search') {
+            document.title = `#${tag} [InstaPhobia]`;
+        }
+        Router.go('search', {tag});
     },
     'input #headerTagField': () => {
         $('#headerBtnGo').prop('disabled', !$('#headerForm').valid());
     },
     'click .grid-li a': (e) => {
         setActiveGrid(e.currentTarget.id);
+    },
+    'click #isShowAuthor': () => {
+        Session.set('isShowAuthor', !Session.get('isShowAuthor'));
     },
     'click .event-edit-btn': (e) => {
         e.preventDefault();
@@ -108,6 +122,7 @@ Template.header.events({
             e.stopPropagation();
         } else {
             $('.showing-link').dropdown('toggle');
+            Session.set('isPagination', false);
         }
     },
     'submit .event-form': (e) => {
@@ -124,6 +139,7 @@ Template.header.events({
         });
     },
     'click .cancel-new-btn': (e) => {
+        e.preventDefault();
         e.stopPropagation();
         $('.new-event-form').addClass('hidden');
         $('.new-event-btn').show();

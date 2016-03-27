@@ -43,35 +43,65 @@ Template.registerHelper("items", function(){
     return result;
 });
 
-getImages = function(token, grid, tag) {
+Template.registerHelper("isShowAuthor", function(){
+    return Session.get('isShowAuthor') === true;
+});
+
+getImages = function() {
+    let url = Session.get('isPagination') ? Session.get('nextUrl') :
+        'https://api.instagram.com/v1/tags/' + getActiveTag() + '/media/recent';
+    var data = {
+        access_token: getActiveToken(),
+        count: Grids.findOne({"name": getActiveGrid()}).quantity
+    };
     $.ajax({
-        url: 'https://api.instagram.com/v1/tags/' + tag + '/media/recent',
+        url,
         type: 'GET',
         dataType: 'jsonp',
-        data: {
-            access_token: token,
-            count: Grids.findOne({"name": grid}).quantity
-        },
-        cache: false,
+        data,
+        jsonpCallback: 'ip',
         success(response) {
-            if (Session.get('currentCollectionId')) EventData.remove({_id: Session.get('currentCollectionId')});
-            Session.set('currentCollectionId', EventData.insert(response.data));
-            setTimeout(getItems, 7000);
+            if (response.data.length) {
+                updateImagesCollection(response);
+                setTimeout(getItems, 7000);
+            } else if (Session.get('isPagination')){
+                Session.set('isPagination', false);
+                getItems();
+            } else {
+                alert(TAPi18n.__('global.images-not-found'));
+            }
         },
-        error(error) {
-            console.log('Error is', error);
+        statusCode: {
+            429() {
+                alert(TAPi18n.__('global.error-limit'));
+            }
         }
     });
 }
 
-getItems = function() {
-    let curRoute = Router.current().route.getName();
-    if(curRoute !== 'search' && curRoute !== 'event') return false;
-    let token = Meteor.user() ? Meteor.user().services.instagram.accessToken :
+function getActiveTag() {
+    return isEvent() ? currentEvent().tag : Session.get('tag')
+}
+
+function getActiveGrid() {
+    return isEvent() ? currentEvent().grid : Session.get('grid') || 'grid1';
+}
+
+function getActiveToken() {
+    return Meteor.user() ? Meteor.user().services.instagram.accessToken :
         Meteor.settings.public.commonAccessToken;
-    let activeGrid = isEvent() ? currentEvent().grid : Session.get('grid') || 'grid1';
-    let tag = isEvent() ? currentEvent().tag : Session.get('tag');
-    getImages(token, activeGrid, tag);
+}
+
+getItems = function() {
+    var curRoute = Router.current().route.getName();
+
+    if (curRoute !== 'search' && curRoute !== 'event') return false;
+
+    //var token = Meteor.user() ? Meteor.user().services.instagram.accessToken :
+    //    Meteor.settings.public.commonAccessToken;
+    //var activeGrid = isEvent() ? currentEvent().grid : Session.get('grid') || 'grid1';
+    //var tag = isEvent() ? currentEvent().tag : Session.get('tag');
+    getImages();
 }
 
 currentEvent = function() {
@@ -116,4 +146,32 @@ validateEventForm = function(id) {
             eventTag: TAPi18n.__('add-event.error-not-valid')
         }
     });
+}
+
+function updateImagesCollection(response) {
+    if (Session.get('currentCollectionId')) {
+        EventData.remove({_id: Session.get('currentCollectionId')});
+    }
+    Session.set('currentCollectionId', EventData.insert(response.data));
+    Session.set('nextUrl', response.pagination.next_url);
+    if ($('.item0>a').attr('href') === response.data[0].link) Session.set('isPagination', true);
+}
+
+selectGrid = function() {
+    var screenWidth = $(window).width();
+    var screenHeight = $(window).height() - 40;
+
+    if (screenWidth < 480) {
+        Session.set('grid', 'grid3');
+        return;
+    }
+
+    var rightGrid = 'grid2';
+    if (screenWidth / screenHeight >= 2) {
+        rightGrid = 'grid3';
+    } else if (screenWidth / screenHeight >= 1.5) {
+        rightGrid = 'grid1';
+    }
+
+    Session.set('grid', rightGrid);
 }

@@ -12,6 +12,7 @@
         position: relative;
         left: 50%;
         margin: 0;
+        overflow: hidden;
         &[data-template="grid1"] {
             height: 100%;
             width: calc(150vh - 60px);
@@ -54,8 +55,8 @@
 
         &[data-template="grid3"] {
             height: 100%;
-            width: calc(200vh - 100px);
-            margin-left: calc(50px - 100vh);
+            width: calc(200vh - 80px);
+            margin-left: calc(40px - 100vh);
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -87,6 +88,7 @@
                 height: 100%;
                 max-width: 100%;
                 max-height: 100%;
+                transition: all 0.5s linear;
             }
             .author {
                 display: block;
@@ -129,6 +131,7 @@
                 width: 100vw;
                 flex-direction: row;
                 margin-top: calc((100vh - 40px - 150vw)/2);
+                margin-left: -50vw;
                 .item0 {
                     width: 100vw;
                     height: 100vw;
@@ -143,6 +146,7 @@
                 height: 100vw;
                 width: 100vw;
                 margin-top: calc((100vh - 40px - 100vw) / 2);
+                margin-left: -50vw;
                 .item {
                     width: 50vw;
                     height: 50vw;
@@ -152,6 +156,7 @@
                 height: 200vw;
                 width: 100vw;
                 margin-top: calc((100vh - 40px - 200vw) / 2);
+                margin-left: -50vw;
                 flex-direction: row;
                 .item0,
                 .item1 {
