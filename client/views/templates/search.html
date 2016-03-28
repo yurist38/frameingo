@@ -1,0 +1,23 @@
+<template name="search">
+    <div class="slideshow">
+        <div class="slide-content" data-template="{{ activeGrid }}">
+            {{#each items}}
+                <div class="item item{{ @index }}">
+                    <a href="{{ link }}" target="_blank">
+                        <img src="{{ images.standard_resolution.url }}" class="slide-img">
+                    </a>
+                    {{#if isShowAuthor }}
+                    <div class="author">
+                        <a href="https://instagram.com/{{ user.username }}" target="_blank">
+                            <img class="avatar" src="{{ user.profile_picture }}">
+                            <span class="name">
+                                {{ user.username }}
+                            </span>
+                        </a>
+                    </div>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>

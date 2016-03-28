@@ -1,34 +1,22 @@
 @import "../../_variables.scss";
 
 .slideshow {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 40px);
     width: 100%;
     display: block;
     overflow: hidden;
     position: relative;
     margin: 0 auto;
-    .grids-dropdown {
-        position: absolute;
-        z-index: 2;
-        left: 10px;
-        top: 10px;
-        opacity: 0.6;
-        a:hover {
-            text-decoration: none;
-        }
-        .dropdown-menu {
-            min-width: auto;
-        }
-        img {
-            height: 40px;
-            width: auto;
-        }
-    }
+    background-color: #000000;
     .slide-content {
+        position: relative;
+        left: 50%;
+        margin: 0;
+        overflow: hidden;
         &[data-template="grid1"] {
             height: 100%;
-            width: calc(150vh - 75px);
-            margin: 0 auto;
+            width: calc(150vh - 60px);
+            margin-left: calc(30px - 75vh);
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -38,21 +26,21 @@
                 flex: 1 0 auto;
             }
             .item0 {
-                width: calc(100vh - 50px);
+                width: calc(100vh - 40px);
                 height: 100%;
                 flex-grow: 1;
             }
             .item1,
             .item2 {
-                width: calc(50vh - 25px);
-                height: calc(50vh - 25px);
+                width: calc(50vh - 20px);
+                height: calc(50vh - 20px);
             }
         }
 
         &[data-template="grid2"] {
             height: 100%;
-            width: calc(100vh - 50px);
-            margin: 0 auto;
+            width: calc(100vh - 40px);
+            margin-left: calc(20px - 50vh);
             display: flex;
             flex-wrap: wrap;
             .item {
@@ -67,8 +55,8 @@
 
         &[data-template="grid3"] {
             height: 100%;
-            width: calc(200vh - 100px);
-            margin: 0 auto;
+            width: calc(200vh - 80px);
+            margin-left: calc(40px - 100vh);
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -79,18 +67,18 @@
             }
             .item0,
             .item1 {
-                width: calc(50vh - 25px);
-                height: calc(50vh - 25px);
+                width: calc(50vh - 20px);
+                height: calc(50vh - 20px);
             }
             .item2 {
-                width: calc(100vh - 50px);
+                width: calc(100vh - 40px);
                 height: 100%;
                 flex-grow: 1;
             }
             .item3,
             .item4 {
-                width: calc(50vh - 25px);
-                height: calc(50vh - 25px);
+                width: calc(50vh - 20px);
+                height: calc(50vh - 20px);
             }
         }
 
@@ -100,6 +88,7 @@
                 height: 100%;
                 max-width: 100%;
                 max-height: 100%;
+                transition: all 0.5s linear;
             }
             .author {
                 display: block;
@@ -141,7 +130,8 @@
                 height: 150vw;
                 width: 100vw;
                 flex-direction: row;
-                margin-top: calc((100vh - 50px - 150vw)/2);
+                margin-top: calc((100vh - 40px - 150vw)/2);
+                margin-left: -50vw;
                 .item0 {
                     width: 100vw;
                     height: 100vw;
@@ -155,7 +145,8 @@
             &[data-template="grid2"] {
                 height: 100vw;
                 width: 100vw;
-                margin-top: calc((100vh - 50px - 100vw) / 2);
+                margin-top: calc((100vh - 40px - 100vw) / 2);
+                margin-left: -50vw;
                 .item {
                     width: 50vw;
                     height: 50vw;
@@ -164,7 +155,8 @@
             &[data-template="grid3"] {
                 height: 200vw;
                 width: 100vw;
-                margin-top: calc((100vh - 50px - 200vw) / 2);
+                margin-top: calc((100vh - 40px - 200vw) / 2);
+                margin-left: -50vw;
                 flex-direction: row;
                 .item0,
                 .item1 {

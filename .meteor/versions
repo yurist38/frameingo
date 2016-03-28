@@ -3,7 +3,7 @@ accounts-oauth@1.1.8
 accounts-password@1.1.4
 accounts-ui@1.1.6
 accounts-ui-unstyled@1.1.8
-aldeed:simple-schema@1.3.3
+aldeed:simple-schema@1.5.3
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -33,7 +33,6 @@ ejson@1.0.7
 email@1.0.8
 es5-shim@4.1.14
 fastclick@1.0.7
-fortawesome:fontawesome@4.5.0
 fourseven:scss@3.4.1
 geojson-utils@1.0.4
 gorillastack:iron-router-gtm@0.2.0
@@ -60,6 +59,7 @@ logging@1.0.8
 lookback:seo@1.1.0
 martino:i18n-conf@0.3.4
 martino:iron-router-i18n@1.2.3
+mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1
 meteorspark:util@0.2.0
@@ -95,7 +95,7 @@ softwarerero:accounts-t9n@1.2.2
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 srp@1.0.4
-tap:i18n@1.7.0
+tap:i18n@1.8.0
 templating@1.1.5
 templating-tools@1.0.0
 themeteorchef:jquery-validation@1.14.0

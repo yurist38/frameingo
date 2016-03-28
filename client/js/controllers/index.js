@@ -1,25 +1,66 @@
-Template.mainLayout.created = () => {
-    TAPi18n.setLanguage(I18NConf.getLanguage());
-};
+var imgCount = 10,
+    collectionCount = 5,
+    numberShuffled = [],
+    setList = [],
+    currentSetIndex = 0,
+    currentSet;
 
-Template.mainLayout.rendered = function() {
-    let styles = [
-    'background:#98AFC7;color:#ffffff;font-weight:bold;',
-    'background:#2B547E;color:#ffffff;font-weight:bold',
-    'background:#2B3856;color:#ffffff;font-weight:bold;'
-    ];
-    console.log ( '%c Welcome to %c Instaphobia\'s %c Underground!',
-        styles[0], styles[1], styles[2]);
-};
+Template.index.created = () => {
+    generateRandomLists();
+    fillData();
+    selectGrid();
+}
 
-Template.errorLogin.events({
-    'click #addEventLoginBtn': () => {
-        Meteor.loginWithInstagram( () => {} );
+Template.index.rendered = () => {
+    iPhobia = iPhobia || {};
+    iPhobia.validatorIndexForm = validateForm('indexForm');
+}
+
+Template.index.helpers({
+    formStatus() {
+        return Session.get('tag') ? 'hidden' : '';
+    },
+    getPics() {
+        return [
+            Session.get('randomSlide1'),
+            Session.get('randomSlide2'),
+            Session.get('randomSlide3'),
+            Session.get('randomSlide4'),
+            Session.get('randomSlide5')
+        ];
+    },
+    rightGrid() {
+        return Session.get('grid');
     }
 });
 
 Template.index.events({
-    'click .block1': () => {
-        Router.go('addevent');
+    'submit #indexForm': (e) => {
+        e.preventDefault();
+        var tag = $('#indexTagField').val();
+        $('#headerFormLi').removeClass('hidden');
+        $('#indexForm').addClass('hidden');
+        iPhobia.validatorHeaderForm = validateForm('headerForm');
+        Router.go('search', {tag: tag});
+    },
+    'input #indexTagField': () => {
+        $('#indexBtnGo').prop('disabled', !$('#indexForm').valid());
     }
 });
+
+function generateRandomLists() {
+    numberShuffled = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sort(function() { return 0.5 - Math.random() });
+    setList = [1, 2, 3, 4, 5].sort(function() { return 0.5 - Math.random() });
+}
+
+function fillData() {
+    var i = 0;
+    currentSet = setList[currentSetIndex];
+    var showDelay = setInterval(function() {
+        Session.set('randomSlide' + setList[i], { img: currentSet + '/' + numberShuffled[setList[i]] });
+        i++;
+        if (i === collectionCount) clearInterval(showDelay);
+    }, 150);
+    currentSetIndex = currentSetIndex < collectionCount - 1 ? currentSetIndex + 1 : 0;
+    setTimeout(fillData, 7000);
+}

@@ -1,26 +1,12 @@
 <template name="slideshow">
     <div class="slideshow">
-        <div class="dropdown grids-dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                <img src="/images/grids/{{ activeGrid }}.png">
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                {{#each grids }}
-                    <li class="grid-li {{ isGridActive name }}">
-                        <a href="#" id="{{ name }}" class="text-center">
-                            <img src="/images/grids/{{ name }}.png">
-                        </a>
-                    </li>
-                {{/each}}
-            </ul>
-        </div>
         <div class="slide-content" data-template="{{ activeGrid }}">
             {{#each items}}
                 <div class="item item{{ @index }}">
                     <a href="{{ link }}" target="_blank">
                         <img src="{{ images.standard_resolution.url }}" class="slide-img">
                     </a>
+                    {{#if isShowAuthor }}
                     <div class="author">
                         <a href="https://instagram.com/{{ user.username }}" target="_blank">
                             <img class="avatar" src="{{ user.profile_picture }}">
@@ -29,6 +15,7 @@
                             </span>
                         </a>
                     </div>
+                    {{/if}}
                 </div>
             {{/each}}
         </div>
