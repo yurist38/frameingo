@@ -9,5 +9,6 @@ before_install:
 - tar xvf settings.tar
 services: mongodb
 script:
+- meteor --settings settings.json
 after_success:
 - curl -L https://cdn.rawgit.com/InstaPhobia/instaphobia.com/89e55462791dfae57bc196dbd5af407f277a91c6/deploy.sh | sh
