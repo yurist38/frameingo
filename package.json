@@ -1,0 +1,19 @@
+{
+  "name": "instaphobia.com",
+  "version": "1.0.0",
+  "description": "Instagram Slideshow Tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests for now... Continue without testing.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InstaPhobia/instaphobia.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InstaPhobia/instaphobia.com/issues"
+  },
+  "homepage": "https://instaphobia.com"
+}
