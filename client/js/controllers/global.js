@@ -167,7 +167,7 @@ selectGrid = function() {
     var screenHeight = $(window).height() - 40;
 
     if (screenWidth < 480) {
-        Session.set('grid', 'grid3');
+        Session.set('grid', 'grid1');
         return;
     }
 

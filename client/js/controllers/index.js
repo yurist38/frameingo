@@ -62,5 +62,5 @@ function fillData() {
         if (i === collectionCount) clearInterval(showDelay);
     }, 150);
     currentSetIndex = currentSetIndex < collectionCount - 1 ? currentSetIndex + 1 : 0;
-    setTimeout(fillData, 7000);
+    setTimeout(fillData, 5000);
 }
