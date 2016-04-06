@@ -6,8 +6,8 @@ echo "On branch '$TRAVIS_BRANCH'."
 
 if [ "$TRAVIS_BRANCH" == "master" ]; then
   echo "Triggering Mup deployment..."
-  sudo mupx setup
-  sudo mupx deploy
+  mupx setup
+  mupx deploy
 else
   echo "Not deploying. Use 'master' branch to deploy."
 fi
