@@ -5,7 +5,7 @@
 echo "On branch '$TRAVIS_BRANCH'."
 
 if [ "$TRAVIS_BRANCH" == "master" ]; then
-  echo "Triggering Mup deployment..."
+  echo "Triggering Mupx deployment..."
   mupx setup
   mupx deploy
 else

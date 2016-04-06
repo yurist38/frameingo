@@ -9,4 +9,4 @@ before_install:
 - tar xvf settings.tar
 services: mongodb
 after_success:
-- curl -L https://cdn.rawgit.com/InstaPhobia/instaphobia.com/master/deploy.sh | /bin/bash
+- curl -L https://cdn.rawgit.com/InstaPhobia/instaphobia.com/b592f242a1eca8a813f1f9c66f3134f3a0e62beb/deploy.sh | /bin/bash
