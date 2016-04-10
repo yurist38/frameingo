@@ -1,0 +1,59 @@
+{
+    "global": {
+        "add-event": "เพิ่ม",
+        "my-events": "Event ของฉัน",
+        "profile": "ข้อมูลส่วนตัว",
+        "logout": "ออกจากระบบ",
+        "sign-in": "เข้าสู่ระบบ",
+        "with-instagram": "โดย <b>Instagram</b>",
+        "sorry-login": "ขออภัย กรุณาเข้าสู่ระบบก่อน",
+        "error-404-msg": "ขออภัย! ไม่พบหน้าที่คุณต้องการ...",
+        "error-limit": "ขออภัย! การเรียกข้อมูลจาก Instagram แบบทั่วไปถึงขีดจำกัด กรุณาเข้าสู่ระบบเพื่อเรียกดูข้อมูลได้อย่างไม่จำกัด",
+        "go-home": "กลับสู่หน้าแรก...",
+        "tag-placeholder": "ป้ายกำกับ",
+        "images-not-found": "ขออภัย! ไม่พบรูปสำหรับ Hashtag ที่คุณระบุ...",
+        "choose-grid": "เลือกรูปแบบ Grid",
+        "show-author": "แสดงเจ้าของภาพ"
+    },
+    "index": {
+        "meta-title": "InstaPhobia - Live Instashow",
+        "meta-description": "Instagram Slideshow สำหรับ Event เหตุการณ์่ต่างๆ ของคุณ, ปาร์ตี้, หรือช่วงเวลาแสนสนุก!",
+        "tip1": "เพิ่ม Event ของคุณ <br>โดยการระบุ Hashtag",
+        "tip2": "บอกให้เพื่อนหรือผู้ร่วม Event ของคุณ ทำการโพสต์รูปภาพ<br>ขึ้นสู่ Instagram โดยใช้ Hashtag ที่คุณกำหนด",
+        "tip3": "แสดงรูปภาพแบบ Real-time <br>บนจอขนาดใหญ่",
+        "tip4": "Enjoy กับปาร์ตี้ <br>ร่วมกัน!"
+    },
+    "add-event": {
+        "meta-title": "เพิ่ม event [InstaPhobia]",
+        "meta-description": "กรุณาระบุรายละเอียดของ Event และเริ่มเล่น Slideshow",
+        "event-name": "ชื่อ Event",
+        "event-name-placeholder": "MyBirthday",
+        "tag": "Tag",
+        "tag-placeholder": "MyAmazingBirthday121212",
+        "grid": "เลือกรูปแบบ Grid",
+        "save": "บันทึก",
+        "error-name-exists": "ขออภัย! คุณมี Event ชื่อเดียวกันนี้อยู่ในระบบแล้ว... กรุณาลองใช้ชื่ออื่น",
+        "error-not-added": "เกิดข้อผิดพลาด! ไม่สามารถทำการเพิ่ม Event โปรดลองใหม่อีกครั้ง",
+        "error-not-valid": "กรุณาตรวจสอบข้อมูล จะต้องเป็นคำเดียวเท่านั้น..."
+    },
+    "event-list": {
+        "meta-title": "Event ของฉัน [InstaPhobia]",
+        "meta-description": "รายชื่อ Event ทั้งหมดที่คุณเพิ่มเข้าสู่ระบบ",
+        "no-events": "คุณยังไม่มี Event ลองเพิ่ม Event แรกของคุณ...",
+        "add-event": "เพิ่ม Event",
+        "run-slideshow": "เริ่ม Slideshow",
+        "remove-event": "ลบ Event",
+        "edit-event": "แก้ไข Event",
+        "cancel": "ยกเลิก"
+    },
+    "profile": {
+        "username": "ชื่อผู้ใช้",
+        "fullname": "ชื่อ-นามสกุล",
+        "biography": "ข้อมูลส่วนตัว",
+        "website": "เว็บไซต์"
+    },
+    "slideshow": {
+        "meta-title": "#%s [InstaPhobia]",
+        "meta-description": "ฟรี Slideshow สำหรับ Instagram"
+    }
+}
