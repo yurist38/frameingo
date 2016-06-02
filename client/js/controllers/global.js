@@ -71,12 +71,14 @@ getImages = function() {
         data,
         jsonpCallback: 'ip',
         success(response) {
-            if (response.data.length) {
+            if (response.data && response.data.length) {
                 updateImagesCollection(response);
                 setTimeout(getItems, 7000);
-            } else if (Session.get('isPagination')){
+            } else if (response.data && Session.get('isPagination')){
                 Session.set('isPagination', false);
                 getItems();
+            } else if (response.meta && response.meta.code === 400) {
+                alert('Sorry, service is temporary unavailable... We apologize for inconvenience...');
             } else {
                 alert(TAPi18n.__('global.images-not-found'));
             }
