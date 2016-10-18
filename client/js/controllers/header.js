@@ -77,7 +77,7 @@ Template.header.events({
         Session.set('tag', tag);
         Session.set('isPagination', false);
         if (Router.current().route.getName() === 'search') {
-            document.title = `#${tag} [InstaPhobia]`;
+            document.title = `#${tag} [FrameInGo]`;
         }
         Router.go('search', {tag});
     },

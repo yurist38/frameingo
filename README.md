@@ -1,6 +1,6 @@
-# instaphobia.com
-Free Instagram Realtime Slideshow Platform
+# FrameInGo.com
+Free Instagram Realtime Slideshow Platform.
 
 Web-application based on Meteor.JS framework.
 
-Project available on [instaphobia.com](https://instaphobia.com/ "Go to website")
+Project available on [frameingo.com](https://frameingo.com/ "Go to website")

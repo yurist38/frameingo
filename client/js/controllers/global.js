@@ -1,16 +1,16 @@
 Router.plugin('seo', {
     defaults: {
-        title: 'InstaPhobia - Live Instashow',
+        title: 'FrameInGo - Live Instashow',
         description: 'Live Instagram Feed Slideshow for your event, party or just for fun!',
-        image: 'https://instaphobia.com/images/instaphobia-preview.jpg',
+        image: 'https://frameingo.com/images/instaphobia-preview.jpg',
         meta: {
-            keywords: ['instagram', 'slideshow', 'party', 'wedding', 'event', 'promotion', 'free', 'instaphobia']
+            keywords: ['instagram', 'slideshow', 'party', 'wedding', 'event', 'promotion', 'free', 'frameingo']
         },
         og: {
             type: 'website',
-            title: 'InstaPhobia - Live Instashow',
-            site_name: 'InstaPhobia - Live Instashow',
-            image: 'https://instaphobia.com/images/instaphobia-preview.jpg'
+            title: 'FrameInGo - Live Instashow',
+            site_name: 'FrameInGo - Live Instashow',
+            image: 'https://frameingo.com/images/instaphobia-preview.jpg'
         }
     }
 });
@@ -34,7 +34,7 @@ Template.mainLayout.rendered = function() {
     'background:#2B547E;color:#ffffff;font-weight:bold;',
     'background:#2B3856;color:#ffffff;font-weight:bold;'
     ];
-    console.log ( '%c Welcome to %c Instaphobia\'s %c Underground!',
+    console.log ( '%c Welcome to %c FrameInGo\'s %c Underground!',
         styles[0], styles[1], styles[2]);
 };
 

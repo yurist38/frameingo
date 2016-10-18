@@ -4,6 +4,7 @@
   "description": "Instagram Slideshow Tool",
   "main": "index.js",
   "scripts": {
+    "dev": "sh config/dev.sh",
     "test": "echo \"No tests for now... Continue without testing.\""
   },
   "repository": {
