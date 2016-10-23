@@ -1,3 +1,7 @@
+import Common from '../../../lib/utils/Common';
+
+const commonUtils = new Common();
+
 var imgCount = 10,
     collectionCount = 5,
     numberShuffled = [],
@@ -8,12 +12,12 @@ var imgCount = 10,
 Template.index.created = () => {
     generateRandomLists();
     fillData();
-    selectGrid();
+    commonUtils.selectGrid();
 }
 
 Template.index.rendered = () => {
     iPhobia = iPhobia || {};
-    iPhobia.validatorIndexForm = validateForm('indexForm');
+    iPhobia.validatorIndexForm = commonUtils.validateForm('indexForm');
 }
 
 Template.index.helpers({
@@ -40,7 +44,7 @@ Template.index.events({
         var tag = $('#indexTagField').val();
         $('#headerFormLi').removeClass('hidden');
         $('#indexForm').addClass('hidden');
-        iPhobia.validatorHeaderForm = validateForm('headerForm');
+        iPhobia.validatorHeaderForm = commonUtils.validateForm('headerForm');
         Router.go('search', {tag: tag});
     },
     'input #indexTagField': () => {

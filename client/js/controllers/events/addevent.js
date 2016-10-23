@@ -1,5 +1,11 @@
+import Common from '../../../../lib/utils/Common';
+import UserEvent from '../../../../lib/utils/UserEvent';
+
+const commonUtils = new Common();
+const userEventUtils = new UserEvent();
+
 Template.addevent.rendered = () => {
-    validateEventForm('addEventForm');
+    commonUtils.validateEventForm('addEventForm');
     $('input.radioImageSelect').radioImageSelect();
 };
 
@@ -9,29 +15,22 @@ Template.addevent.events({
         event.preventDefault();
         var eName = $('#eventName').val().replace(/<(?:.|\n)*?>|\s/gm, '');
         var eTag = $('#eventTag').val().replace(/<(?:.|\n)*?>|\s/gm, '');
-        if (isNameExists(eName)) {
-            alert(TAPi18n.__('add-event.error-name-exists'));
+        if (userEventUtils.isNameExists(eName)) {
+            sweetAlert(TAPi18n.__('add-event.error-name-exists'));
         } else if ($('#addEventForm').valid()) {
             Events.insert({
-                "userId": Meteor.user()._id,
-                "name": eName,
-                "tag": eTag,
-                "grid": $('input[name="gridName"]:checked').val()
-            }, function() {
+                'userId': Meteor.user()._id,
+                'name': eName,
+                'tag': eTag,
+                'grid': $('input[name="gridName"]:checked').val()
+            }, () => {
                 Router.go('eventlist');
             });
         } else {
-            alert(TAPi18n.__('add-event.error-not-added'));
+            sweetAlert(TAPi18n.__('add-event.error-not-added'));
         }
     },
     'input input': () => {
         $('#saveEventBtn').prop('disabled', !$('#addEventForm').valid());
     }
 });
-
-function isNameExists(name) {
-    return !!Events.findOne({
-        "name":name,
-        "userId": Meteor.userId()
-    });
-}
