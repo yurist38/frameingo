@@ -1,19 +1,27 @@
 {
-  "name": "instaphobia.com",
+  "name": "FrameInGo",
   "version": "1.0.0",
   "description": "Instagram Slideshow Tool",
   "main": "index.js",
   "scripts": {
+    "dev": "NODE_ENV=dev meteor run --settings config/dev/settings.json",
     "test": "echo \"No tests for now... Continue without testing.\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/InstaPhobia/instaphobia.com.git"
+    "url": "git+https://github.com/yurist38/frameingo.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/InstaPhobia/instaphobia.com/issues"
+    "url": "https://github.com/yurist38/frameingo/issues"
   },
-  "homepage": "https://instaphobia.com"
+  "homepage": "https://frameingo.com",
+  "dependencies": {
+    "bcrypt": "~0.8.7",
+    "eslint": "~3.8.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-meteor": "~4.0.1"
+  }
 }

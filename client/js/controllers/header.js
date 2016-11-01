@@ -1,3 +1,9 @@
+import Common from '../../../lib/utils/Common';
+import UserEvent from '../../../lib/utils/UserEvent';
+
+const commonUtils = new Common();
+const userEventUtils = new UserEvent();
+
 Template.header.helpers({
     userName() {
         return Meteor.user().profile.name;
@@ -6,7 +12,7 @@ Template.header.helpers({
         return Meteor.user().services.instagram.profile_picture;
     },
     langs() {
-        var langsArray = $.map(TAPi18n.getLanguages(), function(value, index) {
+        var langsArray = $.map(TAPi18n.getLanguages(), (value, index) => {
             return [index];
         });
         return langsArray;
@@ -15,19 +21,19 @@ Template.header.helpers({
         return !!Meteor.user() && !!Events.find({"userId": Meteor.user()._id}).count();
     },
     formStatus() {
-        return Session.get('tag') || isEvent() ? '' : 'hidden';
+        return Session.get('tag') || commonUtils.isEvent() ? '' : 'hidden';
     },
     activeGrid() {
-        return getActiveGrid();
+        return commonUtils.getActiveGrid();
     },
     grids() {
         return Grids.find().fetch();
     },
     isGridActive(gridName) {
-        return gridName === getActiveGrid() ? 'active' : '';
+        return gridName === commonUtils.getActiveGrid() ? 'active' : '';
     },
     activeTag() {
-        return getActiveTag();
+        return commonUtils.getActiveTag();
     },
     userEvents() {
         return Events.find().fetch();
@@ -77,7 +83,7 @@ Template.header.events({
         Session.set('tag', tag);
         Session.set('isPagination', false);
         if (Router.current().route.getName() === 'search') {
-            document.title = `#${tag} [InstaPhobia]`;
+            document.title = `#${tag} [FrameInGo]`;
         }
         Router.go('search', {tag});
     },
@@ -85,7 +91,7 @@ Template.header.events({
         $('#headerBtnGo').prop('disabled', !$('#headerForm').valid());
     },
     'click .grid-li a': (e) => {
-        setActiveGrid(e.currentTarget.id);
+        commonUtils.setActiveGrid(e.currentTarget.id);
     },
     'click #isShowAuthor': () => {
         Session.set('isShowAuthor', !Session.get('isShowAuthor'));
@@ -95,7 +101,7 @@ Template.header.events({
         e.stopPropagation();
         let name = $(e.currentTarget).closest('.li-event').find('.event-name').val();
         if (!$(e.currentTarget).hasClass('disabled')) {
-            editEvent($(e.currentTarget).closest('.li-event'));
+            userEventUtils.editEvent($(e.currentTarget).closest('.li-event'));
         }
     },
     'click .event-remove-btn': (e) => {
@@ -103,7 +109,7 @@ Template.header.events({
         e.stopPropagation();
         let name = $(e.currentTarget).closest('.li-event').find('.event-name').val();
         if (!$(e.currentTarget).hasClass('disabled')) {
-            removeEvent($(e.currentTarget).data('eventid'));
+            userEventUtils.removeEvent($(e.currentTarget).data('eventid'));
         }
     },
     'click .cancel-edit-btn': (e) => {
@@ -127,7 +133,7 @@ Template.header.events({
     },
     'submit .event-form': (e) => {
         e.preventDefault();
-        updateEvent($(e.currentTarget));
+        userEventUtils.updateEvent($(e.currentTarget));
     },
     'click .new-event-btn': (e) => {
         e.stopPropagation();
@@ -135,7 +141,7 @@ Template.header.events({
             $('.new-event-form').removeClass('hidden');
             $(this).next('.new-event-form').find('.event-name').val('').focus();
             $(this).next('.new-event-form').find('.event-tag').val('');
-            validateEventForm('newEventForm');
+            commonUtils.validateEventForm('newEventForm');
         });
     },
     'click .cancel-new-btn': (e) => {
@@ -147,90 +153,15 @@ Template.header.events({
     'submit #newEventForm': (e) => {
         e.preventDefault();
         e.stopPropagation();
-        addEvent($(e.currentTarget));
+        userEventUtils.addEvent($(e.currentTarget));
         $('.new-event-form').addClass('hidden');
         $('.new-event-btn').show();
     }
 });
 
-function getActiveTag() {
-    return isEvent() ? currentEvent().tag : Session.get('tag');
-}
-
-function getActiveGrid() {
-    if (isEvent()) {
-        return currentEvent().grid;
-    }
-    return Session.get('grid') || 'grid1';
-}
-
-function setActiveGrid(gridName) {
-    if (isEvent()) {
-        Events.update({
-            _id: currentEvent()._id
-        }, {
-            $set: {
-                grid: gridName
-            }
-        });
-        getImages(
-            Meteor.user().services.instagram.accessToken,
-            currentEvent().grid,
-            currentEvent().tag
-        );
-    } else {
-        Session.set('grid', gridName);
-        Session.set('picsNum', Grids.findOne({"name": gridName}).quantity);
-        let token = Meteor.user() ? Meteor.user().services.instagram.accessToken :
-            Meteor.settings.public.commonAccessToken;
-        getImages(token, getActiveGrid(), getActiveTag());
-    }
-}
-
-function editEvent($el) {
-    $el.addClass('editing');
-    let $inputName = $el.find('.event-name'),
-        $inputTag = $el.find('.event-tag');
-    $inputName.attr('data-current-value', $inputName.val()).attr('readonly', false).focus();
-    $inputTag.attr('data-current-value', $inputTag.val()).attr('readonly', false);
-    validateEventForm($el.find('form').attr('id'));
-}
-
-function updateEvent($form) {
-    let $newNameInput = $form.find('.event-name'),
-        $newTagInput = $form.find('.event-tag'),
-        eventId = $form.attr('id').substring(5);
-    Events.update({
-        _id: eventId
-    }, {
-        $set: {
-            name: $newNameInput.val(),
-            tag: $newTagInput.val()
-        }
-    });
-    $newNameInput.attr('readonly', true);
-    $newTagInput.attr('readonly', true);
-    $form.closest('.li-event').removeClass('editing');
-}
-
-function removeEvent(id) {
-    Events.remove({'_id': id});
-}
-
-function addEvent($form) {
-    let $newNameInput = $form.find('.event-name'),
-        $newTagInput = $form.find('.event-tag');
-    Events.insert({
-        "userId": Meteor.user()._id,
-        "name": $newNameInput.val(),
-        "tag": $newTagInput.val(),
-        "grid": 'grid1'
-    });
-}
-
 function validateFormOrWait() {
     if ($('#headerFormLi').is(':visible')) {
-        iPhobia.validatorHeaderForm = validateForm('headerForm');
+        iPhobia.validatorHeaderForm = commonUtils.validateForm('headerForm');
     } else {
         setTimeout(validateFormOrWait, 1000);
     }

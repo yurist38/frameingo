@@ -1,0 +1,36 @@
+{
+  'parserOptions': {
+    'ecmaVersion': 6,
+    'sourceType': 'module'
+  },
+  'rules': {
+    'strict': 0,
+    'indent': ['error', 4, { 'SwitchCase': 1 }],
+    'quotes': [2, 'single'],
+    'linebreak-style': [2, 'unix'],
+    'semi': [2, 'always'],
+    'comma-dangle': ['error', 'only-multiline'],
+    'no-console': 'off',
+    'keyword-spacing': ['error']
+  },
+  'env': {
+    'es6': true,
+    'node': true,
+    'browser': true,
+    'amd': true,
+    'mocha': true,
+  },
+  "plugins": ["meteor"],
+  "extends": ["plugin:meteor/recommended"],
+  'globals': {
+    'expect': true,
+    'Router': true,
+    'Template': true,
+    'Meteor': true,
+    'Session': true,
+    'TAPi18n': true,
+    'I18NConf': true,
+    'jQuery': true,
+    'sweetAlert': true,
+  }
+}

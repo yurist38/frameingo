@@ -24,7 +24,17 @@ img[src="/images/slides/.jpg"] {
     padding-top: 30px;
 }
 
+.btn-info {
+  background-color: $main-color;
+  border-color: $main-color;
+  &:hover, &:focus {
+    background-color: darken($main-color, 10%);
+    border-color: darken($main-color, 10%);
+  }
+}
+
 #navPanel {
+    position: relative;
     background-color: $gray-light;
     margin: 0;
     border: none;
@@ -44,13 +54,21 @@ img[src="/images/slides/.jpg"] {
     .visible-md {
         display: inline-block !important;
     }
-    .logo-img {
-        display: inline-block;
-        vertical-align: top;
+    #headerLogoTextLink {
+      position: absolute;
+      float: none;
+      width: auto;
+      height: 40px;
+      left: 50%;
+      margin-left: -65px;
+      z-index: 3;
+      .logo-img {
+        display: block;
         position: relative;
         margin: 5px 0;
         height: 30px;
         width: auto;
+      }
     }
     .btn {
         height: 30px;
@@ -81,7 +99,7 @@ img[src="/images/slides/.jpg"] {
                 position: relative;
                 top: -2px;
             }
-            &.instaphobia-title {
+            &.frameingo-title {
                 font-family: 'billabongregular', Arial, sans-serif;
                 margin: 0;
                 padding: 0;
@@ -110,6 +128,7 @@ img[src="/images/slides/.jpg"] {
         &.langs {
             text-transform: uppercase;
             text-align: right;
+            margin-left: 0;
             >a {
                 padding: 0;
             }
@@ -120,6 +139,10 @@ img[src="/images/slides/.jpg"] {
         left: auto;
         right: 0;
         padding: 0;
+        &#langsMenu {
+            left: 0;
+            right: auto;
+        }
         li {
             padding: 0 15px;
             a {
@@ -414,6 +437,7 @@ img[src="/images/slides/.jpg"] {
 
     #headerFormLi {
         display: inline-block;
+        vertical-align: top;
         position: relative;
         width: auto;
         height: 40px;
@@ -444,21 +468,25 @@ img[src="/images/slides/.jpg"] {
             vertical-align: top;
             padding: 0 10px 0 25px;
             border: 1px solid $gray;
-            width: 200px;
+            width: 120px;
             height: 30px;
+            padding-right: 30px;
         }
         .btn-go {
-            width: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
             height: 30px;
-            float: right;
             font-size: 1.3rem;
-            background-color: $main-color;
-            color: #ffffff;
+            background-color: transparent;
+            color: #ccc;
             text-align: center;
-            border: 1px solid #666;
-            transition: all 0.3s ease-in;
+            border: none;
+            transition: all 0.2s ease-in-out;
             &:hover {
-                background-color: lighten($main-color, 10%);
+              color: #999;
+              transform: scale(1.1) 0.2s ease-in-out;
             }
         }
         label.error {
@@ -556,7 +584,7 @@ img[src="/images/slides/.jpg"] {
     }
 }
 
-@media only screen and (max-width: $screen-xs) {
+@media only screen and (max-width: $screen-sm) {
     #navPanel {
         li {
             &.dropdown {
@@ -564,7 +592,7 @@ img[src="/images/slides/.jpg"] {
                     padding: 0;
                 }
             }
-            a.instaphobia-title {
+            a.frameingo-title {
                 font-size: 25px;
                 line-height: 65px;
             }
@@ -579,7 +607,7 @@ img[src="/images/slides/.jpg"] {
                 width: calc(100% - 70px);
             }
             input {
-                width: calc(100% - 50px);
+                width: 100%;
                 background-color: rgba(255, 255, 255, 0.7);
             }
         }

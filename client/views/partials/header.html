@@ -3,13 +3,6 @@
     <nav class="navbar navbar-default" id="navPanel">
         <div class="container-fluid">
             <ul class="nav navbar-nav nav-left">
-                <li>
-                    <a class="navbar-brand instaphobia-title" href="{{ pathFor route='home' }}">
-                        <img src="/images/instaphobia-logo.svg" class="logo-img" alt="Logo">
-                        InstaPhobia
-                        <span class="beta hidden-xs">beta</span>
-                    </a>
-                </li>
                 <li class="dropdown langs menu-item">
                     <a href="dropdown-toggle" data-toggle="dropdown"
                         role="button" aria-haspopup="true" aria-expanded="false">
@@ -57,6 +50,11 @@
                         id="isShowAuthor" title="{{_ 'global.show-author' }}"></i>
                 </li>
             </ul>
+
+            <a class="frameingo-title"
+                id="headerLogoTextLink" href="{{ pathFor route='home' }}">
+                <img src="/images/logo-text.svg" class="logo-img" alt="Logo">
+            </a>
 
             <ul class="nav navbar-nav pull-right">
 

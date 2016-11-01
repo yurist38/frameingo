@@ -6,17 +6,17 @@
         "logout": "Logout",
         "sign-in": "Sign In",
         "with-instagram": "with <b>Instagram</b>",
-        "sorry-login": "Sorry, login first please...",
+        "sorry-login": "Sorry, authorize first please...",
         "error-404-msg": "Welcome to 404 page! This page is not found...",
         "error-limit": "Sorry! Public Instagram requests limit is exceeded. Please login for unlimited access.",
         "go-home": "Go home...",
         "tag-placeholder": "YourTag",
-        "images-not-found": "Sorry! Images tagged with your hashtag is not found...",
+        "images-not-found": "Sorry! Didn't find any results with your hashtag... Try something else!",
         "choose-grid": "Choose grid",
         "show-author": "Show author"
     },
     "index": {
-        "meta-title": "InstaPhobia - Live Instashow",
+        "meta-title": "FrameInGo - Live Instashow",
         "meta-description": "Live Instagram Feed Slideshow for your event, party or just for fun!",
         "tip1": "Create your event <br>with unique hashtag",
         "tip2": "Ask guests to post pics <br>to Instagram by your hashtag",
@@ -24,7 +24,7 @@
         "tip4": "Enjoy your party <br>together!"
     },
     "add-event": {
-        "meta-title": "New event [InstaPhobia]",
+        "meta-title": "New event [FrameInGo]",
         "meta-description": "Please specify your event details and run slideshow",
         "event-name": "Event's name",
         "event-name-placeholder": "MyBirthday",
@@ -37,7 +37,7 @@
         "error-not-valid": "Check value please, must be single word..."
     },
     "event-list": {
-        "meta-title": "My events [InstaPhobia]",
+        "meta-title": "My events [FrameInGo]",
         "meta-description": "Please find full list of your added events.",
         "no-events": "You have no added events. Please add your first event...",
         "add-event": "Add event",
@@ -53,7 +53,7 @@
         "website": "Website"
     },
     "slideshow": {
-        "meta-title": "#%s [InstaPhobia]",
+        "meta-title": "#%s [FrameInGo]",
         "meta-description": "Instagram Slideshow Online for FREE"
     }
 }

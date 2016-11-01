@@ -4,7 +4,7 @@ Template.eventlist.helpers({
     },
     userEvents: function() {
         return Events.find({
-            "userId": Meteor.user()._id
+            'userId': Meteor.user()._id
         });
     }
 });

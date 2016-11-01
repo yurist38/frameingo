@@ -16,7 +16,7 @@
         "show-author": "แสดงเจ้าของภาพ"
     },
     "index": {
-        "meta-title": "InstaPhobia - Live Instashow",
+        "meta-title": "FrameInGo - Live Instashow",
         "meta-description": "Instagram Slideshow สำหรับ Event เหตุการณ์่ต่างๆ ของคุณ, ปาร์ตี้, หรือช่วงเวลาแสนสนุก!",
         "tip1": "เพิ่ม Event ของคุณ <br>โดยการระบุ Hashtag",
         "tip2": "บอกให้เพื่อนหรือผู้ร่วม Event ของคุณ ทำการโพสต์รูปภาพ<br>ขึ้นสู่ Instagram โดยใช้ Hashtag ที่คุณกำหนด",
@@ -24,7 +24,7 @@
         "tip4": "Enjoy กับปาร์ตี้ <br>ร่วมกัน!"
     },
     "add-event": {
-        "meta-title": "เพิ่ม event [InstaPhobia]",
+        "meta-title": "เพิ่ม event [FrameInGo]",
         "meta-description": "กรุณาระบุรายละเอียดของ Event และเริ่มเล่น Slideshow",
         "event-name": "ชื่อ Event",
         "event-name-placeholder": "MyBirthday",
@@ -37,7 +37,7 @@
         "error-not-valid": "กรุณาตรวจสอบข้อมูล จะต้องเป็นคำเดียวเท่านั้น..."
     },
     "event-list": {
-        "meta-title": "Event ของฉัน [InstaPhobia]",
+        "meta-title": "Event ของฉัน [FrameInGo]",
         "meta-description": "รายชื่อ Event ทั้งหมดที่คุณเพิ่มเข้าสู่ระบบ",
         "no-events": "คุณยังไม่มี Event ลองเพิ่ม Event แรกของคุณ...",
         "add-event": "เพิ่ม Event",
@@ -53,7 +53,7 @@
         "website": "เว็บไซต์"
     },
     "slideshow": {
-        "meta-title": "#%s [InstaPhobia]",
+        "meta-title": "#%s [FrameInGo]",
         "meta-description": "ฟรี Slideshow สำหรับ Instagram"
     }
 }
