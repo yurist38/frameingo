@@ -4,6 +4,6 @@ ServiceConfiguration.configurations.remove({
 ServiceConfiguration.configurations.insert({
     service: 'instagram',
     clientId: Meteor.settings.clientId,
-    scope: ['public_content'],
+    scope: ['basic'],
     secret: Meteor.settings.secret
 });
