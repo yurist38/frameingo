@@ -4,7 +4,7 @@
   "description": "Instagram Slideshow Tool",
   "main": "index.js",
   "scripts": {
-    "dev": "sh config/dev.sh",
+    "dev": "NODE_ENV=dev meteor run --settings config/dev/settings.json",
     "test": "echo \"No tests for now... Continue without testing.\""
   },
   "repository": {
